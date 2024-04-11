@@ -1,0 +1,384 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<ScrollView android:id="@+id/note"
+		android:layout_width="wrap_content" 
+		android:layout_height="match_parent" >
+
+
+
+
+		<RelativeLayout android:id="@+id/content_container"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" >
+
+			<View   android:id="@+id/_bg__note"
+				android:background="@drawable/_bg__note_shape"
+				 android:layout_marginStart="0dp"
+				android:layout_marginTop="0dp"
+				android:layout_width="match_parent"
+				android:layout_height="800dp" />
+			<TextView android:id="@+id/_________________________________________________________________________________________________"
+				android:textStyle="italic"
+				android:layout_gravity="center_horizontal|center"
+				android:gravity="center"
+				android:textSize="15sp"
+				android:textColor="@color/_____________________________________________________________________________color"
+				android:layout_marginLeft="34dp"
+				android:layout_marginTop="207dp"
+				android:layout_width="292dp"
+				android:layout_height="226.5dp"
+				android:text="GEGHDFJGHFREDBNCMVKF"
+				/>
+
+
+
+
+		</RelativeLayout>
+
+	</ScrollView>
+
+
+
+
+	<!-- header-->
+	<RelativeLayout
+		android:id="@+id/head"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="0dp"
+		android:layout_marginStart="0dp">
+
+		<View
+			android:id="@+id/rectangle_1"
+			android:layout_width="match_parent"
+			android:layout_height="78dp"
+			android:layout_marginStart="0dp"
+			android:layout_marginTop="0dp"
+			android:background="@drawable/rectangle_1_shape" />
+
+		<TextView
+			android:id="@+id/diary"
+			android:layout_width="89dp"
+			android:layout_height="53dp"
+			android:layout_gravity="center"
+			android:layout_marginLeft="147dp"
+			android:layout_marginTop="19dp"
+			android:fontFamily="@font/kav"
+			android:gravity="center"
+			android:text="@string/diary_string"
+			android:textColor="@color/______________color"
+			android:textSize="30sp"
+			android:layout_centerVertical="true" />
+
+		<ImageView
+			android:id="@+id/create_new_text"
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:layout_alignParentStart="true"
+			android:layout_marginStart="45dp"
+			android:layout_centerVertical="true"
+			android:src="@drawable/save" />
+
+		<ImageView
+			android:id="@+id/stat"
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:layout_alignParentEnd="true"
+			android:layout_marginEnd="45dp"
+			android:layout_centerVertical="true"
+			android:src="@drawable/delete" />
+
+	</RelativeLayout>
+
+	<!--underhead -->
+	<LinearLayout
+		android:id="@+id/footer111"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:orientation="horizontal"
+		android:layout_marginTop="78dp"
+		app:layout_constraintTop_toTopOf="parent">
+
+		<RelativeLayout
+			android:id="@+id/first_item"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1">
+
+			<View
+				android:id="@+id/_bg_________ek5"
+				android:layout_width="match_parent"
+				android:layout_height="54dp"
+				android:background="@drawable/_bg_________ek5_shape" />
+
+			<View
+				android:id="@+id/rectangle_5"
+				android:layout_width="match_parent"
+				android:layout_height="54dp"
+				android:background="@color/dark_pink" />
+
+			<TextView
+				android:id="@+id/notes"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerHorizontal="true"
+				android:layout_centerVertical="true"
+				android:text="Записи"
+				android:textColor="@color/_04_03_24_color"
+				android:textSize="14sp"
+				android:textStyle="italic" />
+
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:id="@+id/second_item"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1">
+
+			<View
+				android:id="@+id/_bg___________ek1"
+				android:layout_width="match_parent"
+				android:layout_height="54dp"
+				android:background="@drawable/_bg___________ek1_shape" />
+
+			<View
+				android:id="@+id/rectangle_6"
+				android:layout_width="match_parent"
+				android:layout_height="54dp"
+				android:background="@color/bled_purp" />
+
+			<TextView
+				android:id="@+id/ex"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerHorizontal="true"
+				android:layout_centerVertical="true"
+				android:text="Задания"
+				android:textColor="@color/_04_03_24_color"
+				android:textSize="14sp"
+				android:textStyle="italic" />
+
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:id="@+id/third_item"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1">
+
+			<View
+				android:id="@+id/rectangle_7"
+				android:layout_width="match_parent"
+				android:layout_height="54dp"
+				android:background="@drawable/rectangle_7_shape" />
+
+			<TextView
+				android:id="@+id/wonts"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerHorizontal="true"
+				android:layout_centerVertical="true"
+				android:text="Привычки"
+				android:textColor="@color/_04_03_24_color"
+				android:textSize="14sp"
+				android:textStyle="italic" />
+
+		</RelativeLayout>
+	</LinearLayout>
+
+	<!--name of note-->
+
+	<RelativeLayout  android:id="@+id/_______4"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="5dp"
+		android:layout_marginStart="0dp"
+		app:layout_constraintTop_toBottomOf="@id/footer111"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		>
+
+		<View
+			android:id="@+id/rectangle_9"
+			android:layout_width="match_parent"
+			android:layout_height="74.55dp"
+			android:layout_marginStart="0dp"
+			android:layout_marginTop="0dp"
+			android:background="@drawable/rectangle_9_shape" />
+
+		<TextView android:id="@+id/_04_03_24"
+			android:textStyle="italic"
+			android:textSize="13sp"
+			android:textColor="@color/_04_03_24_color"
+			android:layout_marginLeft="290dp"
+			android:layout_marginTop="18dp"
+			android:layout_width="63.3dp"
+			android:layout_height="26.66dp"
+			android:text="@string/_04_03_24_string"
+			/>
+
+		<TextView android:id="@+id/____________________________________________________"
+			android:textStyle="italic"
+			android:layout_gravity="center_horizontal|center"
+			android:gravity="center"
+			android:textSize="15sp"
+			android:textColor="@color/_04_03_24_color"
+			android:layout_marginLeft="8dp"
+			android:layout_marginTop="15dp"
+			android:layout_width="263dp"
+			android:layout_height="47.5dp"
+			android:text="перперпркрперпре"
+			/>
+
+	</RelativeLayout>
+
+
+
+
+
+	<!--footer-->
+	<RelativeLayout
+		android:id="@+id/foot"
+		android:layout_width="match_parent"
+		android:layout_height="65dp"
+		android:background="@drawable/foot_shape"
+		app:layout_constraintBottom_toBottomOf="parent">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="horizontal"
+			android:gravity="center">
+
+			<ImageView
+				android:layout_width="0dp"
+				android:layout_height="45dp"
+				android:layout_weight="1"
+				android:src="@drawable/happy" />
+
+			<ImageView
+				android:layout_width="0dp"
+				android:layout_height="45dp"
+				android:layout_weight="1"
+				android:src="@drawable/nice" />
+
+			<ImageView
+				android:layout_width="0dp"
+				android:layout_height="45dp"
+				android:layout_weight="1"
+				android:src="@drawable/love" />
+
+			<ImageView
+				android:layout_width="0dp"
+				android:layout_height="45dp"
+				android:layout_weight="1"
+				android:src="@drawable/hmm" />
+
+			<ImageView
+				android:layout_width="0dp"
+				android:layout_height="45dp"
+				android:layout_weight="1"
+				android:src="@drawable/angry" />
+
+			<ImageView
+				android:layout_width="0dp"
+				android:layout_height="45dp"
+				android:layout_weight="1"
+				android:src="@drawable/bue" />
+
+			<ImageView
+				android:layout_width="0dp"
+				android:layout_height="45dp"
+				android:layout_weight="1"
+				android:src="@drawable/cry" />
+
+		</LinearLayout>
+	</RelativeLayout>
+
+	<!--всякая шляпа с заданием и цитатами-->
+	<RelativeLayout
+		android:id="@+id/underfoot"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:layout_constraintBottom_toTopOf="@id/foot"
+		android:layout_marginBottom="5dp">
+
+			<RelativeLayout android:id="@+id/_______ek4"
+			android:layout_marginTop="587dp"
+			android:layout_marginStart="0dp"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			>
+
+
+
+			<RelativeLayout android:id="@+id/_______5"
+				android:layout_marginTop="0dp"
+				android:layout_marginStart="0dp"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				>
+
+
+				<View   android:id="@+id/rectangle_9_ek1"
+					android:background="@drawable/rectangle_9_ek1_shape"
+					android:layout_marginStart="0dp"
+					android:layout_marginTop="0dp"
+					android:layout_width="match_parent"
+					android:layout_height="74dp" />
+
+			</RelativeLayout>
+
+			<TextView android:id="@+id/____________________________________________________________________________________"
+				android:textStyle="italic"
+				android:textSize="15sp"
+				android:textColor="@color/_____________________________________________________________________________color"
+				android:layout_marginLeft="19dp"
+				android:layout_marginTop="9dp"
+				android:layout_width="336.5dp"
+				android:layout_height="55.5dp"
+				android:text="Цитата дня: "
+				/>
+
+		</RelativeLayout>
+
+		<RelativeLayout android:id="@+id/_______6"
+			android:layout_marginTop="661dp"
+			android:layout_marginStart="0dp"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			>
+
+
+
+			<View   android:id="@+id/rectangle_9"
+				android:background="@drawable/rectangle_9_shape"
+				android:layout_marginStart="0dp"
+				android:layout_marginTop="0dp"
+				android:layout_width="match_parent"
+				android:layout_height="74dp" />
+
+			<TextView android:id="@+id/____________________________________________________________________________"
+				android:textStyle="italic"
+				android:textSize="15sp"
+				android:textColor="@color/_____________________________________________________________________________color"
+				android:layout_marginLeft="19dp"
+				android:layout_marginTop="15dp"
+				android:layout_width="336.5dp"
+				android:layout_height="38.5dp"
+				android:text="Задание на день: "
+				/>
+
+		</RelativeLayout>
+	</RelativeLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

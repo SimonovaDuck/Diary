@@ -1,0 +1,359 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+	<ScrollView android:id="@+id/zad" 
+		android:layout_width="match_parent"
+		android:layout_height="match_parent" >
+
+		<RelativeLayout android:id="@+id/content_container" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" >
+
+			<View   android:id="@+id/_bg__zad"
+				android:background="@color/mind"
+				android:layout_width="match_parent"
+				android:layout_height="800dp" />
+
+
+
+
+			<RelativeLayout android:id="@+id/_______ek3"
+				android:layout_marginTop="138dp"
+				android:layout_marginStart="0dp"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				>
+
+
+
+				<RelativeLayout android:id="@+id/_______4"
+					android:layout_marginTop="168dp"
+					android:layout_marginStart="0dp"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					>
+
+
+					<View   android:id="@+id/rectangle_11"
+						android:background="@drawable/rectangle_11_shape"
+						 android:layout_marginStart="0dp"
+						android:layout_marginTop="0dp"
+						android:layout_width="match_parent"
+						android:layout_height="50dp" />
+
+					<TextView android:id="@+id/___________________"
+						android:textStyle="italic"
+						android:textSize="13sp"
+						android:textColor="@color/_______ek2_color"
+						android:layout_marginLeft="36dp"
+						android:layout_marginTop="18dp"
+						android:layout_width="144.3dp"
+						android:layout_height="19.3dp"
+						android:text="@string/____________________string"
+						 />
+
+					<TextView android:id="@+id/_06_02_24"
+						android:textStyle="italic"
+						android:textSize="13sp"
+						android:textColor="@color/_______ek2_color"
+						android:layout_marginLeft="290dp"
+						android:layout_marginTop="18dp"
+						android:layout_width="63.3dp"
+						android:layout_height="19.3dp"
+						android:text="@string/_06_02_24_string"
+						 />
+
+				</RelativeLayout>
+
+
+				<RelativeLayout android:id="@+id/_______3"
+					android:layout_marginTop="112dp"
+					android:layout_marginStart="0dp"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					>
+
+
+					<View   android:id="@+id/rectangle_11_ek1"
+						android:background="@drawable/rectangle_11_ek1_shape"
+						 android:layout_marginStart="0dp"
+						android:layout_marginTop="0dp"
+						android:layout_width="match_parent"
+						android:layout_height="50dp" />
+
+
+
+					<TextView android:id="@+id/________________________ek1"
+						android:textStyle="italic"
+						android:textSize="13sp"
+						android:textColor="@color/_______ek2_color"
+						android:layout_marginLeft="36dp"
+						android:layout_marginTop="18dp"
+						android:layout_width="174.3dp"
+						android:layout_height="19.3dp"
+						android:text="@string/________________________ek1_string"
+						 />
+
+					<TextView android:id="@+id/_04_02_24"
+						android:textStyle="italic"
+						android:textSize="13sp"
+						android:textColor="@color/_______ek2_color"
+						android:layout_marginLeft="290dp"
+						android:layout_marginTop="18dp"
+						android:layout_width="63.3dp"
+						android:layout_height="19.3dp"
+						android:text="@string/_04_02_24_string"
+						 />
+
+				</RelativeLayout>
+
+
+				<RelativeLayout android:id="@+id/_______2"
+					android:layout_marginTop="56dp"
+					android:layout_marginStart="0dp"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					>
+
+
+
+					<View   android:id="@+id/rectangle_10"
+						android:background="@drawable/rectangle_10_shape"
+						 android:layout_marginStart="0dp"
+						android:layout_marginTop="0dp"
+						android:layout_width="match_parent"
+						android:layout_height="50dp" />
+
+					<TextView android:id="@+id/________________________ek2"
+						android:textStyle="italic"
+						android:textSize="13sp"
+						android:textColor="@color/_______ek2_color"
+						android:layout_marginLeft="33dp"
+						android:layout_marginTop="18dp"
+						android:layout_width="185.3dp"
+						android:layout_height="19.3dp"
+						android:text="@string/________________________ek2_string"
+						 />
+
+					<TextView android:id="@+id/_01_03_24"
+						android:textStyle="italic"
+						android:textSize="13sp"
+						android:textColor="@color/_______ek2_color"
+						android:layout_marginLeft="290dp"
+						android:layout_marginTop="18dp"
+						android:layout_width="63.3dp"
+						android:layout_height="19.3dp"
+						android:text="@string/_01_03_24_string"
+						 />
+
+				</RelativeLayout>
+
+
+				<RelativeLayout android:id="@+id/_______1"
+					android:layout_marginTop="0dp"
+					android:layout_marginStart="0dp"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					>
+
+
+					<View   android:id="@+id/rectangle_9"
+						android:background="@drawable/rectangle_9_shape"
+						 android:layout_marginStart="0dp"
+						android:layout_marginTop="0dp"
+						android:layout_width="match_parent"
+						android:layout_height="50dp" />
+
+					<TextView android:id="@+id/_04_03_24"
+						android:textStyle="italic"
+						android:textSize="13sp"
+						android:textColor="@color/_______ek2_color"
+						android:layout_marginLeft="290dp"
+						android:layout_marginTop="18dp"
+						android:layout_width="63.3dp"
+						android:layout_height="19.3dp"
+						android:text="@string/_04_03_24_string"
+						 />
+
+					<TextView android:id="@+id/______________________"
+						android:textStyle="italic"
+						android:textSize="13sp"
+						android:textColor="@color/_______ek2_color"
+						android:layout_marginLeft="33dp"
+						android:layout_marginTop="18dp"
+						android:layout_width="177.3dp"
+						android:layout_height="19.3dp"
+						android:text="@string/_______________________string"
+						 />
+
+				</RelativeLayout>
+
+			</RelativeLayout>
+
+		</RelativeLayout>
+
+	</ScrollView>
+
+
+	<RelativeLayout
+		android:id="@+id/head_z"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="0dp"
+		android:layout_marginStart="0dp"
+		android:layout_alignParentTop="true">
+
+		<View
+			android:id="@+id/rectangle_1_z"
+			android:layout_width="match_parent"
+			android:layout_height="78dp"
+			android:layout_marginStart="0dp"
+			android:layout_marginTop="0dp"
+			android:background="@drawable/rectangle_1_shape" />
+
+		<TextView
+			android:id="@+id/diary_z"
+			android:layout_width="89dp"
+			android:layout_height="53dp"
+			android:layout_gravity="center"
+			android:layout_marginLeft="147dp"
+			android:layout_marginTop="19dp"
+			android:fontFamily="@font/kav"
+			android:gravity="center"
+			android:text="@string/diary_string"
+			android:textColor="@color/______________color"
+			android:textSize="30sp"
+			android:layout_centerVertical="true" />
+
+		<ImageView
+			android:id="@+id/create_new_text"
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:layout_alignParentStart="true"
+			android:layout_marginStart="45dp"
+			android:layout_centerVertical="true"
+			android:src="@drawable/new_text" />
+
+		<ImageView
+			android:id="@+id/stat"
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:layout_alignParentEnd="true"
+			android:layout_marginEnd="45dp"
+			android:layout_centerVertical="true"
+			android:src="@drawable/statistic" />
+
+	</RelativeLayout>
+
+
+	<LinearLayout
+		android:id="@+id/footer111"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:orientation="horizontal"
+		android:layout_marginTop="78dp"
+		app:layout_constraintTop_toTopOf="parent">
+
+		<RelativeLayout
+			android:id="@+id/first_item"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1">
+
+			<View
+				android:id="@+id/_bg_________ek5"
+				android:layout_width="match_parent"
+				android:layout_height="54dp"
+				android:background="@drawable/_bg_________ek5_shape" />
+
+			<View
+				android:id="@+id/rectangle_5"
+				android:layout_width="match_parent"
+				android:layout_height="54dp"
+				android:background="@color/bled_purp" />
+
+			<TextView
+				android:id="@+id/notes"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerHorizontal="true"
+				android:layout_centerVertical="true"
+				android:text="Записи"
+				android:textColor="@color/_04_03_24_color"
+				android:textSize="14sp"
+				android:textStyle="italic" />
+
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:id="@+id/second_item"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1">
+
+			<View
+				android:id="@+id/_bg___________ek1"
+				android:layout_width="match_parent"
+				android:layout_height="54dp"
+				android:background="@drawable/_bg___________ek1_shape" />
+
+			<View
+				android:id="@+id/rectangle_6"
+				android:layout_width="match_parent"
+				android:layout_height="54dp"
+				android:background="@color/dark_pink" />
+
+			<TextView
+				android:id="@+id/ex"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerHorizontal="true"
+				android:layout_centerVertical="true"
+				android:text="Задания"
+				android:textColor="@color/_04_03_24_color"
+				android:textSize="14sp"
+				android:textStyle="italic" />
+
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:id="@+id/third_item"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1">
+
+			<View
+				android:id="@+id/rectangle_7"
+				android:layout_width="match_parent"
+				android:layout_height="54dp"
+				android:background="@drawable/rectangle_7_shape" />
+
+			<TextView
+				android:id="@+id/wonts"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerHorizontal="true"
+				android:layout_centerVertical="true"
+				android:text="Привычки"
+				android:textColor="@color/_04_03_24_color"
+				android:textSize="14sp"
+				android:textStyle="italic" />
+
+		</RelativeLayout>
+	</LinearLayout>
+
+
+
+	<View   android:id="@+id/foot"
+		android:background="@drawable/foot_shape"
+		android:layout_width="match_parent"
+		android:layout_height="65dp"
+		app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

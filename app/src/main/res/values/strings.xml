@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- zad strings -->
+
+	<string name="app_name">Diary</string>
+	<string name="ek_img_content">ExportKit Image</string>
+	<string name="_______ek2_string"></string>
+	<string name="________ek2_string"></string>
+	<string name="_________ek2_string"></string>
+	<string name="diary_string">Diary</string>
+	<string name="____________________string">  </string>
+	<string name="_06_02_24_string">06.02.24</string>
+	<string name="________________________string">  -</string>
+	<string name="________________________ek1_string">  -</string>
+	<string name="_04_02_24_string">04.02.24</string>
+	<string name="________________________ek2_string">   </string>
+	<string name="_01_03_24_string">01.03.24</string>
+	<string name="_04_03_24_string">04.03.24</string>
+	<string name="_______________________string">  </string>
+</resources>

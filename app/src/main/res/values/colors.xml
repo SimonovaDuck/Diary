@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- registration colors -->
+
+	<color name="colorPrimary">#008577</color>
+	<color name="colorPrimaryDark">#00574B</color>
+	<color name="colorAccent">#D81B60</color>
+	<color name="purple_200">#FFBB86FC</color>
+	<color name="purple_500">#FF6200EE</color>
+	<color name="purple_700">#FF3700B3</color>
+	<color name="teal_200">#FF03DAC5</color>
+	<color name="teal_700">#FF018786</color>
+	<color name="black">#FF000000</color>
+	<color name="white">#FFFFFFFF</color>
+
+	<color name="bled_purp">#E5B7B1</color>
+	<color name="mind">#F2E2DD</color>
+	<color name="texts">#353A47</color>
+	<color name="dark_pink">#B98791</color>
+	<color name="text_light">#6E727F</color>
+
+
+
+
+
+	<color name="_bg___registration_color">#E5B7B1</color>
+	<color name="rectangle_12_color">#F2E2DD</color>
+	<color name="____________color">#353A47</color>
+	<color name="_____color">#353A47</color>
+
+	<color name="_bg__zad_color">#F2E2DD</color>
+	<color name="_bg___not_head_ek1_color">#000000</color>
+	<color name="rectangle_5_color">#E5B7B1</color>
+	<color name="_______ek2_color">#353A47</color>
+	<color name="rectangle_6_color">#B98791</color>
+
+
+	<color name="ellipse_2_color">#F2E2DD</color>
+
+	<color name="_bg__menu_color">#F2E2DD</color>
+	<color name="_bg_________ek1_color">#000000</color>
+	<color name="rectangle_11_color">#E5B7B1</color>
+	<color name="______________color">#353A47</color>
+
+	<color name="_bg__example_color">#F2E2DD</color>
+	<color name="ellipse_13_color">#FFFFFF</color>
+	<color name="rectangle_9_color">#E5B7B1</color>
+	<color name="_04_03_24_color">#353A47</color>
+	<color name="ellipse_22_color">#ffffff</color>
+	<color name="_bg__note_color">#F2E2DD</color>
+	<color name="_____________________________________________________________________________color">#353A47</color>
+
+	<color name="_bg__wont_ex_color">#F2E2DD</color>
+
+
+	<color name="_bg__wonts_color">#F2E2DD</color>
+	<color name="rectangle_7_color">#B98791</color>
+
+	<color name="_bg__emotions_color">#F2E2DD</color>
+	<color name="_bg__footer_ek1_color">#000000</color>
+	<color name="foot_color">#B98791</color>
+	<color name="rectangle_26_color">#E5B7B1</color>
+
+
+</resources>
