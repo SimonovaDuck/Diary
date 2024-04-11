@@ -14,34 +14,28 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content" >
 
-			<View   android:id="@+id/_bg__wont_ex"
-				android:background="@drawable/_bg__wont_ex_shape"
-				 android:layout_marginStart="0dp"
-				android:layout_marginTop="0dp"
+
+			<View
+				android:id="@+id/_bg__wont_ex"
 				android:layout_width="match_parent"
-				android:layout_height="800dp" />
-
-
-
-
-
-
-
-
+				android:layout_height="800dp"
+				android:layout_marginStart="0dp"
+				android:layout_marginTop="0dp"
+				android:background="@color/mind" />
 
 			<View   android:id="@+id/rectangle_16"
-				android:background="@drawable/rectangle_16_shape"
+				android:background="@color/bled_purp"
 				 android:layout_marginStart="0dp"
 				android:layout_marginTop="319dp"
-				android:layout_width="360dp"
+				android:layout_width="match_parent"
 				android:layout_height="25dp" />
 
 
 
-			<TextView android:id="@+id/_____________________________________________________________________________"
+			<TextView android:id="@+id/trecker"
 				android:textStyle="italic"
 				android:textSize="15sp"
-				android:textColor="@color/_04_03_24_color"
+				android:textColor="@color/texts"
 				android:layout_marginLeft="16dp"
 				android:layout_marginTop="252dp"
 				android:layout_width="259.5dp"
@@ -49,10 +43,10 @@
 				android:text="Пить водическую"
 				 />
 
-			<TextView android:id="@+id/___________"
+			<TextView android:id="@+id/how_are_you"
 				android:textStyle="italic"
 				android:textSize="15sp"
-				android:textColor="@color/_04_03_24_color"
+				android:textColor="@color/texts"
 				android:layout_marginLeft="138dp"
 				android:layout_marginTop="321dp"
 				android:layout_width="97.5dp"
@@ -70,7 +64,6 @@
 
 				<ImageView android:id="@+id/vector_ek5"
 					android:src="@drawable/yes"
-					android:contentDescription="vector_ek5"
 					 android:layout_marginStart="5.6dp"
 					android:layout_marginTop="5.6dp"
 					android:layout_width="35dp"
@@ -92,7 +85,6 @@
 
 				<ImageView android:id="@+id/vector_ek7"
 					android:src="@drawable/no"
-					android:contentDescription="vector_ek7"
 					 android:layout_marginStart="5.6dp"
 					android:layout_marginTop="5.6dp"
 					android:layout_width="35dp"
@@ -112,7 +104,6 @@
 
 				<ImageView android:id="@+id/vector_ek8"
 					android:src="@drawable/no"
-					android:contentDescription="vector_ek8"
 					 android:layout_marginStart="5.6dp"
 					android:layout_marginTop="5.6dp"
 					android:layout_width="35dp"
@@ -120,10 +111,10 @@
 
 			</RelativeLayout>
 
-			<TextView android:id="@+id/__________"
+			<TextView android:id="@+id/in_proc"
 				android:textStyle="italic"
 				android:textSize="15sp"
-				android:textColor="@color/_04_03_24_color"
+				android:textColor="@color/texts"
 				android:layout_marginLeft="70dp"
 				android:layout_marginTop="358dp"
 				android:layout_width="98.5dp"
@@ -131,10 +122,10 @@
 				android:text="В процессе"
 				 />
 
-			<TextView android:id="@+id/_________"
+			<TextView android:id="@+id/done"
 				android:textStyle="italic"
 				android:textSize="15sp"
-				android:textColor="@color/_04_03_24_color"
+				android:textColor="@color/texts"
 				android:layout_marginLeft="75dp"
 				android:layout_marginTop="402dp"
 				android:layout_width="98.5dp"
@@ -142,10 +133,10 @@
 				android:text="Выполнено"
 				 />
 
-			<TextView android:id="@+id/_________ek3"
+			<TextView android:id="@+id/disable"
 				android:textStyle="italic"
 				android:textSize="15sp"
-				android:textColor="@color/_04_03_24_color"
+				android:textColor="@color/texts"
 				android:layout_marginLeft="70dp"
 				android:layout_marginTop="447dp"
 				android:layout_width="98.5dp"
@@ -158,35 +149,34 @@
 	</ScrollView>
 
 
+	<!-- header-->
 	<RelativeLayout
-		android:id="@+id/head_z"
+		android:id="@+id/head"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="0dp"
-		android:layout_marginStart="0dp"
-		android:layout_alignParentTop="true">
+		android:layout_marginStart="0dp">
 
 		<View
-			android:id="@+id/rectangle_1_z"
+			android:id="@+id/rectangle_1"
 			android:layout_width="match_parent"
 			android:layout_height="78dp"
 			android:layout_marginStart="0dp"
 			android:layout_marginTop="0dp"
-			android:background="@drawable/rectangle_1_shape" />
+			android:background="@color/dark_pink" />
 
 		<TextView
-			android:id="@+id/diary_z"
+			android:id="@+id/diary"
 			android:layout_width="89dp"
 			android:layout_height="53dp"
 			android:layout_gravity="center"
-			android:layout_marginLeft="147dp"
-			android:layout_marginTop="19dp"
 			android:fontFamily="@font/kav"
 			android:gravity="center"
 			android:text="@string/diary_string"
-			android:textColor="@color/______________color"
+			android:textColor="@color/texts"
 			android:textSize="30sp"
-			android:layout_centerVertical="true" />
+			android:layout_centerVertical="true"
+			android:layout_centerHorizontal="true"/>
 
 		<ImageView
 			android:id="@+id/create_new_text"
@@ -209,8 +199,9 @@
 	</RelativeLayout>
 
 
+	<!--underhead -->
 	<LinearLayout
-		android:id="@+id/footer111"
+		android:id="@+id/underhead"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_alignParentBottom="true"
@@ -224,11 +215,6 @@
 			android:layout_height="wrap_content"
 			android:layout_weight="1">
 
-			<View
-				android:id="@+id/_bg_________ek5"
-				android:layout_width="match_parent"
-				android:layout_height="54dp"
-				android:background="@drawable/_bg_________ek5_shape" />
 
 			<View
 				android:id="@+id/rectangle_5"
@@ -243,7 +229,7 @@
 				android:layout_centerHorizontal="true"
 				android:layout_centerVertical="true"
 				android:text="Записи"
-				android:textColor="@color/_04_03_24_color"
+				android:textColor="@color/texts"
 				android:textSize="14sp"
 				android:textStyle="italic" />
 
@@ -255,11 +241,6 @@
 			android:layout_height="wrap_content"
 			android:layout_weight="1">
 
-			<View
-				android:id="@+id/_bg___________ek1"
-				android:layout_width="match_parent"
-				android:layout_height="54dp"
-				android:background="@drawable/_bg___________ek1_shape" />
 
 			<View
 				android:id="@+id/rectangle_6"
@@ -274,7 +255,7 @@
 				android:layout_centerHorizontal="true"
 				android:layout_centerVertical="true"
 				android:text="Задания"
-				android:textColor="@color/_04_03_24_color"
+				android:textColor="@color/texts"
 				android:textSize="14sp"
 				android:textStyle="italic" />
 
@@ -299,7 +280,7 @@
 				android:layout_centerHorizontal="true"
 				android:layout_centerVertical="true"
 				android:text="Привычки"
-				android:textColor="@color/_04_03_24_color"
+				android:textColor="@color/texts"
 				android:textSize="14sp"
 				android:textStyle="italic" />
 
@@ -308,12 +289,12 @@
 
 	<!--name of note-->
 
-	<RelativeLayout  android:id="@+id/_______4"
+	<RelativeLayout  android:id="@+id/name_of_wont"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="5dp"
 		android:layout_marginStart="0dp"
-		app:layout_constraintTop_toBottomOf="@id/footer111"
+		app:layout_constraintTop_toBottomOf="@id/underhead"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
 		>
@@ -324,12 +305,12 @@
 			android:layout_height="74.55dp"
 			android:layout_marginStart="0dp"
 			android:layout_marginTop="0dp"
-			android:background="@drawable/rectangle_9_shape" />
+			android:background="@color/bled_purp" />
 
 		<TextView android:id="@+id/_04_03_24"
 			android:textStyle="italic"
 			android:textSize="13sp"
-			android:textColor="@color/_04_03_24_color"
+			android:textColor="@color/text_light"
 			android:layout_marginLeft="290dp"
 			android:layout_marginTop="18dp"
 			android:layout_width="63.3dp"
@@ -337,24 +318,26 @@
 			android:text="@string/_04_03_24_string"
 			/>
 
-		<TextView android:id="@+id/____________________________________________________"
+		<TextView android:id="@+id/text_wont"
 			android:textStyle="italic"
 			android:layout_gravity="center_horizontal|center"
 			android:gravity="center"
 			android:textSize="15sp"
-			android:textColor="@color/_04_03_24_color"
+			android:textColor="@color/texts"
 			android:layout_marginLeft="8dp"
 			android:layout_marginTop="15dp"
 			android:layout_width="263dp"
 			android:layout_height="47.5dp"
-			android:text="перперпркрперпре"
+			android:text="Drink water"
+			android:fontFamily="@font/kav"
 			/>
 
 	</RelativeLayout>
 
 
+	<!--footer -->
 	<View   android:id="@+id/foot"
-		android:background="@drawable/foot_shape"
+		android:background="@color/dark_pink"
 		android:layout_width="match_parent"
 		android:layout_height="65dp"
 		app:layout_constraintBottom_toBottomOf="parent"/>

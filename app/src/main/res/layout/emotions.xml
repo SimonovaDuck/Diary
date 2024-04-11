@@ -16,8 +16,8 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content" >
 
-			<View   android:id="@+id/_bg__emotions"
-				android:background="@drawable/_bg__emotions_shape"
+			<View   android:id="@+id/bg__emotions"
+				android:background="@color/mind"
 				 android:layout_marginStart="0dp"
 				android:layout_marginTop="0dp"
 				android:layout_width="match_parent"
@@ -26,8 +26,8 @@
 
 
 
-			<View   android:id="@+id/rectangle_26"
-				android:background="@drawable/rectangle_26_shape"
+			<View   android:id="@+id/rectangle_em"
+				android:background="@color/bled_purp"
 				 android:layout_marginStart="0dp"
 				android:layout_marginTop="512dp"
 				android:layout_width="match_parent"
@@ -38,20 +38,20 @@
 
 
 			<TextView
-				android:id="@+id/_5________"
+				android:id="@+id/num_of_day"
 				android:textStyle="italic"
 				android:textSize="24sp"
-				android:textColor="@color/_______ek2_color"
+				android:textColor="@color/texts"
 				android:layout_width="wrap_content"
-			android:layout_height="42.4dp"
-			android:layout_centerHorizontal="true"
-			android:layout_marginTop="440dp"
-			android:text="число" />
+				android:layout_height="42.4dp"
+				android:layout_centerHorizontal="true"
+				android:layout_marginTop="440dp"
+				android:text="число" />
 
-			<TextView android:id="@+id/_________________________"
+			<TextView android:id="@+id/text_emotions"
 				android:textStyle="italic"
 				android:textSize="18sp"
-				android:textColor="@color/_______ek2_color"
+				android:textColor="@color/texts"
 				android:layout_marginLeft="15dp"
 				android:layout_marginTop="489dp"
 				android:layout_width="258.8dp"
@@ -63,7 +63,7 @@
 
 	</ScrollView>
 
-
+<!--header -->
 	<RelativeLayout
 		android:id="@+id/head"
 		android:layout_width="match_parent"
@@ -77,21 +77,20 @@
 			android:layout_height="78dp"
 			android:layout_marginStart="0dp"
 			android:layout_marginTop="0dp"
-			android:background="@drawable/rectangle_1_shape" />
+			android:background="@color/dark_pink" />
 
 		<TextView
 			android:id="@+id/diary"
 			android:layout_width="89dp"
 			android:layout_height="53dp"
 			android:layout_gravity="center"
-			android:layout_marginLeft="147dp"
-			android:layout_marginTop="19dp"
 			android:fontFamily="@font/kav"
 			android:gravity="center"
 			android:text="@string/diary_string"
-			android:textColor="@color/______________color"
+			android:textColor="@color/texts"
 			android:textSize="30sp"
-			android:layout_centerVertical="true" />
+			android:layout_centerVertical="true"
+			android:layout_centerHorizontal="true"/>
 
 		<ImageView
 			android:id="@+id/create_new_text"
@@ -113,9 +112,9 @@
 
 	</RelativeLayout>
 
-
+<!-- underhead-->
 	<LinearLayout
-		android:id="@+id/footer111"
+		android:id="@+id/underhead"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_alignParentBottom="true"
@@ -129,11 +128,6 @@
 			android:layout_height="wrap_content"
 			android:layout_weight="1">
 
-			<View
-				android:id="@+id/_bg_________ek5"
-				android:layout_width="match_parent"
-				android:layout_height="54dp"
-				android:background="@drawable/_bg_________ek5_shape" />
 
 			<View
 				android:id="@+id/rectangle_5"
@@ -148,7 +142,7 @@
 				android:layout_centerHorizontal="true"
 				android:layout_centerVertical="true"
 				android:text="Записи"
-				android:textColor="@color/_04_03_24_color"
+				android:textColor="@color/texts"
 				android:textSize="14sp"
 				android:textStyle="italic" />
 
@@ -160,17 +154,12 @@
 			android:layout_height="wrap_content"
 			android:layout_weight="1">
 
-			<View
-				android:id="@+id/_bg___________ek1"
-				android:layout_width="match_parent"
-				android:layout_height="54dp"
-				android:background="@drawable/_bg___________ek1_shape" />
 
 			<View
 				android:id="@+id/rectangle_6"
 				android:layout_width="match_parent"
 				android:layout_height="54dp"
-				android:background="@drawable/rectangle_6_shape" />
+				android:background="@color/bled_purp" />
 
 			<TextView
 				android:id="@+id/ex"
@@ -179,7 +168,7 @@
 				android:layout_centerHorizontal="true"
 				android:layout_centerVertical="true"
 				android:text="Задания"
-				android:textColor="@color/_04_03_24_color"
+				android:textColor="@color/texts"
 				android:textSize="14sp"
 				android:textStyle="italic" />
 
@@ -195,7 +184,7 @@
 				android:id="@+id/rectangle_7"
 				android:layout_width="match_parent"
 				android:layout_height="54dp"
-				android:background="@drawable/rectangle_7_shape" />
+				android:background="@color/bled_purp" />
 
 			<TextView
 				android:id="@+id/wonts"
@@ -204,15 +193,15 @@
 				android:layout_centerHorizontal="true"
 				android:layout_centerVertical="true"
 				android:text="Привычки"
-				android:textColor="@color/_04_03_24_color"
+				android:textColor="@color/texts"
 				android:textSize="14sp"
 				android:textStyle="italic" />
 
 		</RelativeLayout>
 	</LinearLayout>
-
+<!--footer -->
 	<View   android:id="@+id/foot"
-		android:background="@drawable/foot_shape"
+		android:background="@color/dark_pink"
 		android:layout_width="match_parent"
 		android:layout_height="65dp"
 		app:layout_constraintBottom_toBottomOf="parent"/>

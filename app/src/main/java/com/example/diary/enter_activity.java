@@ -7,14 +7,14 @@ import android.view.View;
 
 public class enter_activity extends Activity {
 
-	private View _bg___enter;
+	private View entering;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.enter);
 
-		_bg___enter = findViewById(R.id._bg___enter);
+		entering = findViewById(R.id.entering);
 
 		// Создаем Handler с задержкой 2 секунды (2000 миллисекунд)
 		new Handler().postDelayed(new Runnable() {

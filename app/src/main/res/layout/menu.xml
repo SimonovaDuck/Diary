@@ -18,21 +18,20 @@
 			android:layout_height="78dp"
 			android:layout_marginStart="0dp"
 			android:layout_marginTop="0dp"
-			android:background="@drawable/rectangle_1_shape" />
+			android:background="@color/dark_pink" />
 
 		<TextView
 			android:id="@+id/diary"
 			android:layout_width="89dp"
 			android:layout_height="53dp"
 			android:layout_gravity="center"
-			android:layout_marginLeft="147dp"
-			android:layout_marginTop="19dp"
 			android:fontFamily="@font/kav"
 			android:gravity="center"
 			android:text="@string/diary_string"
-			android:textColor="@color/______________color"
+			android:textColor="@color/texts"
 			android:textSize="30sp"
-			android:layout_centerVertical="true" />
+			android:layout_centerVertical="true"
+			android:layout_centerHorizontal="true"/>
 
 		<ImageView
 			android:id="@+id/create_new_text"
@@ -56,7 +55,7 @@
 
 
 	<LinearLayout
-		android:id="@+id/footer111"
+		android:id="@+id/underhead"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_alignParentBottom="true"
@@ -70,11 +69,6 @@
 			android:layout_height="wrap_content"
 			android:layout_weight="1">
 
-			<View
-				android:id="@+id/_bg_________ek5"
-				android:layout_width="match_parent"
-				android:layout_height="54dp"
-				android:background="@drawable/_bg_________ek5_shape" />
 
 			<View
 				android:id="@+id/rectangle_5"
@@ -89,7 +83,7 @@
 				android:layout_centerHorizontal="true"
 				android:layout_centerVertical="true"
 				android:text="Записи"
-				android:textColor="@color/_04_03_24_color"
+				android:textColor="@color/texts"
 				android:textSize="14sp"
 				android:textStyle="italic" />
 
@@ -101,17 +95,12 @@
 			android:layout_height="wrap_content"
 			android:layout_weight="1">
 
-			<View
-				android:id="@+id/_bg___________ek1"
-				android:layout_width="match_parent"
-				android:layout_height="54dp"
-				android:background="@drawable/_bg___________ek1_shape" />
 
 			<View
 				android:id="@+id/rectangle_6"
 				android:layout_width="match_parent"
 				android:layout_height="54dp"
-				android:background="@drawable/rectangle_6_shape" />
+				android:background="@color/bled_purp" />
 
 			<TextView
 				android:id="@+id/ex"
@@ -120,7 +109,7 @@
 				android:layout_centerHorizontal="true"
 				android:layout_centerVertical="true"
 				android:text="Задания"
-				android:textColor="@color/_04_03_24_color"
+				android:textColor="@color/texts"
 				android:textSize="14sp"
 				android:textStyle="italic" />
 
@@ -136,7 +125,7 @@
 				android:id="@+id/rectangle_7"
 				android:layout_width="match_parent"
 				android:layout_height="54dp"
-				android:background="@drawable/rectangle_7_shape" />
+				android:background="@color/bled_purp" />
 
 			<TextView
 				android:id="@+id/wonts"
@@ -145,13 +134,12 @@
 				android:layout_centerHorizontal="true"
 				android:layout_centerVertical="true"
 				android:text="Привычки"
-				android:textColor="@color/_04_03_24_color"
+				android:textColor="@color/texts"
 				android:textSize="14sp"
 				android:textStyle="italic" />
 
 		</RelativeLayout>
 	</LinearLayout>
-
 
 	<ScrollView android:id="@+id/menu"
 		android:layout_width="match_parent"
@@ -176,27 +164,14 @@
 				android:layout_height="match_parent"
 				>
 
-				<View   android:id="@+id/_bg_________ek1"
-					android:background="@color/bled_purp"
-					 android:layout_marginStart="0dp"
-					android:layout_marginTop="-138dp"
-					android:layout_width="match_parent"
-					android:layout_height="match_parent"/>
 
-
-				<RelativeLayout android:id="@+id/_______3"
+				<RelativeLayout android:id="@+id/_3"
 					android:layout_marginTop="112dp"
 					android:layout_marginStart="0dp"
 					android:layout_width="match_parent"
 					android:layout_height="match_parent"
 					>
 
-					<View   android:id="@+id/_bg_________3_ek1"
-						android:background="@drawable/_bg_________3_ek1_shape"
-						 android:layout_marginStart="0dp"
-						android:layout_marginTop="-250dp"
-						android:layout_width="match_parent"
-						android:layout_height="match_parent" />
 
 					<View   android:id="@+id/rectangle_11"
 						android:background="@color/bled_purp"
@@ -205,21 +180,21 @@
 						android:layout_width="match_parent"
 						android:layout_height="50dp" />
 
-					<TextView android:id="@+id/_____________"
+					<TextView android:id="@+id/__3"
 						android:textStyle="italic"
 						android:textSize="13sp"
-						android:textColor="@color/______________color"
+						android:textColor="@color/texts"
 						android:layout_marginLeft="36dp"
 						android:layout_marginTop="18dp"
 						android:layout_width="108.3dp"
 						android:layout_height="19.3dp"
-						android:text="День рожденьия"
+						android:text="День рожденьица"
 						 />
 
 					<TextView android:id="@+id/_04_02_24"
 						android:textStyle="italic"
 						android:textSize="13sp"
-						android:textColor="@color/______________color"
+						android:textColor="@color/text_light"
 						android:layout_marginLeft="290dp"
 						android:layout_marginTop="18dp"
 						android:layout_width="63.3dp"
@@ -230,32 +205,26 @@
 				</RelativeLayout>
 
 
-				<RelativeLayout android:id="@+id/_______2"
+				<RelativeLayout android:id="@+id/_2"
 					android:layout_marginTop="56dp"
 					android:layout_marginStart="0dp"
 					android:layout_width="match_parent"
 					android:layout_height="match_parent"
 					>
 
-					<View   android:id="@+id/_bg_________2_ek1"
-						android:background="@drawable/_bg_________2_ek1_shape"
-						 android:layout_marginStart="0dp"
-						android:layout_marginTop="-194dp"
-						android:layout_width="match_parent"
-						android:layout_height="match_parent" />
 
 					<View   android:id="@+id/rectangle_10"
-						android:background="@drawable/rectangle_10_shape"
+						android:background="@color/bled_purp"
 						 android:layout_marginStart="0dp"
 						android:layout_marginTop="0dp"
 						android:layout_width="match_parent"
 
 						android:layout_height="50dp" />
 
-					<TextView android:id="@+id/_________________"
+					<TextView android:id="@+id/__2"
 						android:textStyle="italic"
 						android:textSize="13sp"
-						android:textColor="@color/______________color"
+						android:textColor="@color/texts"
 						android:layout_marginLeft="33dp"
 						android:layout_marginTop="18dp"
 						android:layout_width="139.3dp"
@@ -266,7 +235,7 @@
 					<TextView android:id="@+id/_01_03_24"
 						android:textStyle="italic"
 						android:textSize="13sp"
-						android:textColor="@color/______________color"
+						android:textColor="@color/text_light"
 						android:layout_marginLeft="290dp"
 						android:layout_marginTop="18dp"
 						android:layout_width="63.3dp"
@@ -277,22 +246,16 @@
 				</RelativeLayout>
 
 
-				<RelativeLayout android:id="@+id/_______1"
+				<RelativeLayout android:id="@+id/_1"
 					android:layout_marginTop="0dp"
 					android:layout_marginStart="0dp"
 					android:layout_width="match_parent"
 					android:layout_height="match_parent"
 					>
 
-					<View   android:id="@+id/_head"
-						android:background="@drawable/_bg__________1_ek1_shape"
-						 android:layout_marginStart="0dp"
-						android:layout_marginTop="-138dp"
-						android:layout_width="match_parent"
-						android:layout_height="match_parent" />
 
 					<View   android:id="@+id/rectangle_9"
-						android:background="@drawable/rectangle_9_shape"
+						android:background="@color/bled_purp"
 						 android:layout_marginStart="0dp"
 						android:layout_marginTop="0dp"
 						android:layout_width="match_parent"
@@ -301,7 +264,7 @@
 					<TextView android:id="@+id/_04_03_24"
 						android:textStyle="italic"
 						android:textSize="13sp"
-						android:textColor="@color/______________color"
+						android:textColor="@color/text_light"
 						android:layout_marginLeft="290dp"
 						android:layout_marginTop="18dp"
 						android:layout_width="63.3dp"
@@ -309,10 +272,10 @@
 						android:text="@string/_04_03_24_string"
 						 />
 
-					<TextView android:id="@+id/______________________"
+					<TextView android:id="@+id/__1"
 						android:textStyle="italic"
 						android:textSize="13sp"
-						android:textColor="@color/______________color"
+						android:textColor="@color/texts"
 						android:layout_marginLeft="33dp"
 						android:layout_marginTop="18dp"
 						android:layout_width="167.3dp"
@@ -330,11 +293,10 @@
 
 
 
-
-		<View   android:id="@+id/foot"
-			android:background="@drawable/foot_shape"
-			android:layout_width="match_parent"
-			android:layout_height="65dp"
-			app:layout_constraintBottom_toBottomOf="parent"/>
+	<View   android:id="@+id/foot"
+		android:background="@color/dark_pink"
+		android:layout_width="match_parent"
+		android:layout_height="65dp"
+		app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

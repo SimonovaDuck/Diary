@@ -16,7 +16,7 @@
 			android:layout_height="wrap_content" >
 
 			<View   android:id="@+id/_bg__example"
-				android:background="@drawable/_bg__example_shape"
+				android:background="@color/mind"
 				 android:layout_marginStart="0dp"
 				android:layout_marginTop="0dp"
 				android:layout_width="match_parent"
@@ -43,21 +43,20 @@
 			android:layout_height="78dp"
 			android:layout_marginStart="0dp"
 			android:layout_marginTop="0dp"
-			android:background="@drawable/rectangle_1_shape" />
+			android:background="@color/dark_pink" />
 
 		<TextView
 			android:id="@+id/diary"
 			android:layout_width="89dp"
 			android:layout_height="53dp"
 			android:layout_gravity="center"
-			android:layout_marginLeft="147dp"
-			android:layout_marginTop="19dp"
 			android:fontFamily="@font/kav"
 			android:gravity="center"
 			android:text="@string/diary_string"
-			android:textColor="@color/______________color"
+			android:textColor="@color/texts"
 			android:textSize="30sp"
-			android:layout_centerVertical="true" />
+			android:layout_centerVertical="true"
+			android:layout_centerHorizontal="true"/>
 
 		<ImageView
 			android:id="@+id/create_new_text"
@@ -81,7 +80,7 @@
 
 <!--underhead -->
 	<LinearLayout
-		android:id="@+id/footer111"
+		android:id="@+id/underhead"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_alignParentBottom="true"
@@ -95,11 +94,6 @@
 			android:layout_height="wrap_content"
 			android:layout_weight="1">
 
-			<View
-				android:id="@+id/_bg_________ek5"
-				android:layout_width="match_parent"
-				android:layout_height="54dp"
-				android:background="@drawable/_bg_________ek5_shape" />
 
 			<View
 				android:id="@+id/rectangle_5"
@@ -114,7 +108,7 @@
 				android:layout_centerHorizontal="true"
 				android:layout_centerVertical="true"
 				android:text="Записи"
-				android:textColor="@color/_04_03_24_color"
+				android:textColor="@color/texts"
 				android:textSize="14sp"
 				android:textStyle="italic" />
 
@@ -126,11 +120,6 @@
 			android:layout_height="wrap_content"
 			android:layout_weight="1">
 
-			<View
-				android:id="@+id/_bg___________ek1"
-				android:layout_width="match_parent"
-				android:layout_height="54dp"
-				android:background="@drawable/_bg___________ek1_shape" />
 
 			<View
 				android:id="@+id/rectangle_6"
@@ -145,7 +134,7 @@
 				android:layout_centerHorizontal="true"
 				android:layout_centerVertical="true"
 				android:text="Задания"
-				android:textColor="@color/_04_03_24_color"
+				android:textColor="@color/texts"
 				android:textSize="14sp"
 				android:textStyle="italic" />
 
@@ -161,7 +150,7 @@
 				android:id="@+id/rectangle_7"
 				android:layout_width="match_parent"
 				android:layout_height="54dp"
-				android:background="@drawable/rectangle_7_shape" />
+				android:background="@color/bled_purp" />
 
 			<TextView
 				android:id="@+id/wonts"
@@ -170,7 +159,7 @@
 				android:layout_centerHorizontal="true"
 				android:layout_centerVertical="true"
 				android:text="Привычки"
-				android:textColor="@color/_04_03_24_color"
+				android:textColor="@color/texts"
 				android:textSize="14sp"
 				android:textStyle="italic" />
 
@@ -179,12 +168,12 @@
 
 <!--name of note-->
 
-	<RelativeLayout  android:id="@+id/_______4"
+	<RelativeLayout  android:id="@+id/name_of_zad"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="5dp"
 		android:layout_marginStart="0dp"
-		app:layout_constraintTop_toBottomOf="@id/footer111"
+		app:layout_constraintTop_toBottomOf="@id/underhead"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
 		>
@@ -195,12 +184,12 @@
 			android:layout_height="74.55dp"
 			android:layout_marginStart="0dp"
 			android:layout_marginTop="0dp"
-			android:background="@drawable/rectangle_9_shape" />
+			android:background="@color/bled_purp" />
 
 		<TextView android:id="@+id/_04_03_24"
 			android:textStyle="italic"
 			android:textSize="13sp"
-			android:textColor="@color/_04_03_24_color"
+			android:textColor="@color/text_light"
 			android:layout_marginLeft="290dp"
 			android:layout_marginTop="18dp"
 			android:layout_width="63.3dp"
@@ -208,17 +197,17 @@
 			android:text="@string/_04_03_24_string"
 			/>
 
-		<TextView android:id="@+id/____________________________________________________"
+		<TextView android:id="@+id/name_of_zad_text"
 			android:textStyle="italic"
 			android:layout_gravity="center_horizontal|center"
 			android:gravity="center"
 			android:textSize="15sp"
-			android:textColor="@color/_04_03_24_color"
+			android:textColor="@color/texts"
 			android:layout_marginLeft="8dp"
 			android:layout_marginTop="15dp"
 			android:layout_width="263dp"
 			android:layout_height="47.5dp"
-			android:text="перперпркрперпре"
+			android:text="Фруктец"
 			/>
 
 	</RelativeLayout>
@@ -228,7 +217,7 @@
 		android:id="@+id/foot"
 		android:layout_width="match_parent"
 		android:layout_height="65dp"
-		android:background="@drawable/foot_shape"
+		android:background="@color/dark_pink"
 		app:layout_constraintBottom_toBottomOf="parent">
 
 		<LinearLayout

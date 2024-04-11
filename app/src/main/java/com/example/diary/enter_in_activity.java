@@ -9,17 +9,14 @@ import android.widget.TextView;
 
 public class enter_in_activity extends Activity {
 
-	private Button button;
 	private TextView text_noacc;
-	private TextView create_account_button;
+	private Button create_account_button;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.enter_in);
 
-		// Находим кнопки и текстовые поля по их идентификаторам
-		button = findViewById(R.id.create_account_button);
 
 		text_noacc = findViewById(R.id.text_noacc);
 		create_account_button = findViewById(R.id.create_account_button);
