@@ -32,7 +32,7 @@
 
 
 
-			<TextView android:id="@+id/trecker"
+			<EditText android:id="@+id/trecker"
 				android:textStyle="italic"
 				android:textSize="15sp"
 				android:textColor="@color/texts"
@@ -40,7 +40,7 @@
 				android:layout_marginTop="252dp"
 				android:layout_width="259.5dp"
 				android:layout_height="61.5dp"
-				android:text="Пить водическую"
+				android:text="Enter your wont"
 				 />
 
 			<TextView android:id="@+id/how_are_you"
@@ -318,7 +318,7 @@
 			android:text="@string/_04_03_24_string"
 			/>
 
-		<TextView android:id="@+id/text_wont"
+		<EditText android:id="@+id/text_wont"
 			android:textStyle="italic"
 			android:layout_gravity="center_horizontal|center"
 			android:gravity="center"
@@ -328,7 +328,7 @@
 			android:layout_marginTop="15dp"
 			android:layout_width="263dp"
 			android:layout_height="47.5dp"
-			android:text="Drink water"
+			android:text="Title"
 			android:fontFamily="@font/kav"
 			/>
 

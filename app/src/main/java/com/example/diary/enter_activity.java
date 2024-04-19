@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 
+
 public class enter_activity extends Activity {
 
 	private View entering;
@@ -21,7 +22,7 @@ public class enter_activity extends Activity {
 			@Override
 			public void run() {
 				// Изменяем макет текущей активности на другой макет
-				setContentView(R.layout.enter_in); // Замените other_layout на имя вашего другого макета
+				setContentView(R.layout.registration); // Замените other_layout на имя вашего другого макета
 			}
 		}, 2000); // 2000 миллисекунд (2 секунды) задержки
 	}

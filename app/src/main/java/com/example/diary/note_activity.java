@@ -17,13 +17,10 @@
 
 package com.example.diary;
 
-import android.app.Activity;
-import android.os.Bundle;
-
-
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
+	import android.app.Activity;
+	import android.os.Bundle;
+	import android.view.View;
+	import android.widget.TextView;
 
 public class note_activity extends Activity {
 
@@ -52,7 +49,7 @@ public class note_activity extends Activity {
 		setContentView(R.layout.note);
 
 		
-		_bg__note = (View) findViewById(R.id._bg__note);
+		//_bg__note = (View) findViewById(R.id._bg__note);
 		foot = (View) findViewById(R.id.foot);
 		rectangle_5 = (View) findViewById(R.id.rectangle_5);
 		rectangle_6 = (View) findViewById(R.id.rectangle_6);

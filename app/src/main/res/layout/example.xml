@@ -6,30 +6,29 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-
 	<ScrollView android:id="@+id/example"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent" >
+		android:layout_height="0dp"
+		android:background="@color/mind"
+		android:layout_below="@id/name_of_zad"
+		android:layout_above="@id/foot"
+		app:layout_constraintTop_toBottomOf="@id/name_of_zad"
+		app:layout_constraintBottom_toTopOf="@id/foot">
 
-		<RelativeLayout android:id="@+id/content_container"
+		<EditText
+			android:id="@+id/user_input"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content" >
-
-			<View   android:id="@+id/_bg__example"
-				android:background="@color/mind"
-				 android:layout_marginStart="0dp"
-				android:layout_marginTop="0dp"
-				android:layout_width="match_parent"
-				android:layout_height="match_parent"/>
-
-
-
-		</RelativeLayout>
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:layout_marginTop="16dp"
+			android:layout_marginEnd="16dp"
+			android:fontFamily="@font/kav"
+			android:gravity="top|start"
+			android:hint="Enter your thoughts"
+			android:inputType="textMultiLine" />
 
 	</ScrollView>
 
-
-<!-- header-->
 	<RelativeLayout
 		android:id="@+id/head"
 		android:layout_width="match_parent"
@@ -171,7 +170,7 @@
 	<RelativeLayout  android:id="@+id/name_of_zad"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="5dp"
+		android:layout_marginTop="2dp"
 		android:layout_marginStart="0dp"
 		app:layout_constraintTop_toBottomOf="@id/underhead"
 		app:layout_constraintStart_toStartOf="parent"
@@ -197,7 +196,7 @@
 			android:text="@string/_04_03_24_string"
 			/>
 
-		<TextView android:id="@+id/name_of_zad_text"
+		<EditText android:id="@+id/name_of_zad_text"
 			android:textStyle="italic"
 			android:layout_gravity="center_horizontal|center"
 			android:gravity="center"
@@ -207,7 +206,9 @@
 			android:layout_marginTop="15dp"
 			android:layout_width="263dp"
 			android:layout_height="47.5dp"
-			android:text="Фруктец"
+			android:hint="Title"
+			android:fontFamily="@font/kav"
+			android:background="@null"
 			/>
 
 	</RelativeLayout>
