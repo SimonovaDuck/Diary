@@ -8,7 +8,7 @@
     import android.view.View;
     import android.widget.TextView;
 
-    public class note_example_activity extends Activity {
+    public class noteexample_activity extends Activity {
 
 
 

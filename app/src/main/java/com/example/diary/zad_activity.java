@@ -17,14 +17,13 @@
 
 package com.example.diary;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.os.Bundle;
-
-
-import android.view.View;
-import android.widget.TextView;
-import android.widget.ImageView;
+	import android.annotation.SuppressLint;
+	import android.app.Activity;
+	import android.content.Intent;
+	import android.os.Bundle;
+	import android.view.View;
+	import android.widget.ImageView;
+	import android.widget.TextView;
 
 public class zad_activity extends Activity {
 
@@ -60,6 +59,10 @@ public class zad_activity extends Activity {
 	private TextView _04_03_24;
 	private TextView ______________________;
 
+	public ImageView stat;
+
+	public ImageView create_new_text;
+
 	@SuppressLint("MissingInflatedId")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -78,18 +81,41 @@ public class zad_activity extends Activity {
 		rectangle_11 = (View) findViewById(R.id.rectangle_11);
 		_06_02_24 = (TextView) findViewById(R.id._06_02_24);
 		rectangle_11_ek1 = (View) findViewById(R.id.rectangle_11_ek1);
-		________________________ek1 = (TextView) findViewById(R.id.________________________ek1);
 		_04_02_24 = (TextView) findViewById(R.id._04_02_24);
 		rectangle_10 = (View) findViewById(R.id.rectangle_10);
-		________________________ek2 = (TextView) findViewById(R.id.________________________ek2);
 		_01_03_24 = (TextView) findViewById(R.id._01_03_24);
 		rectangle_9 = (View) findViewById(R.id.rectangle_9);
 		_04_03_24 = (TextView) findViewById(R.id._04_03_24);
-		______________________ = (TextView) findViewById(R.id.______________________);
-	
+
+
+		create_new_text = (ImageView) findViewById(R.id.create_new_text);
+		stat = (ImageView) findViewById(R.id.stat);
 		
 		//custom code goes here
 	
+	}
+
+	public void onClickNotes(View view){
+		Intent intent = new Intent (this, menu_activity.class);
+		startActivity(intent);
+	}
+	public void onClickZads(View view){
+		Intent intent = new Intent (this,zad_activity.class);
+		startActivity(intent);
+	}
+	public void onClickWonts(View view){
+		Intent intent = new Intent (this,wonts_activity.class);
+		startActivity(intent);
+	}
+
+	public void onClickNewNote(View view){
+		Intent intent = new Intent (this,note_activity.class);
+		startActivity(intent);
+	}
+
+	public void onClickStatistic(View view){
+		Intent intent = new Intent (this,emotions_activity.class);
+		startActivity(intent);
 	}
 }
 	
