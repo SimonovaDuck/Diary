@@ -91,13 +91,19 @@ public class wonts_activity extends Activity {
 		startActivity(intent);
 	}
 
-//	public void onClickNewNote(View view){
-//		Intent intent = new Intent (this,note_activity.class);
-//		startActivity(intent);
-//	}
+	public void onClickNewNote(View view){
+		Intent intent = new Intent (this,note_activity.class);
+		startActivity(intent);
+	}
 
 	public void onClickStatistic(View view){
 		Intent intent = new Intent (this,emotions_activity.class);
+		startActivity(intent);
+	}
+
+
+	public void onClickNewWont(View view){
+		Intent intent = new Intent (this,wont_ex_activity.class);
 		startActivity(intent);
 	}
 }

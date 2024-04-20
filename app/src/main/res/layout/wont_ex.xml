@@ -40,7 +40,7 @@
 				android:layout_marginTop="252dp"
 				android:layout_width="259.5dp"
 				android:layout_height="61.5dp"
-				android:text="Enter your wont"
+				android:hint="Enter your wont"
 				 />
 
 			<TextView android:id="@+id/how_are_you"
@@ -185,7 +185,11 @@
 			android:layout_alignParentStart="true"
 			android:layout_marginStart="45dp"
 			android:layout_centerVertical="true"
-			android:src="@drawable/save" />
+			android:src="@drawable/save"
+			android:clickable="true"
+			android:focusable="true"
+			android:onClick="onClickNewNote"
+			/>
 
 		<ImageView
 			android:id="@+id/stat"
@@ -194,12 +198,15 @@
 			android:layout_alignParentEnd="true"
 			android:layout_marginEnd="45dp"
 			android:layout_centerVertical="true"
-			android:src="@drawable/delete" />
+			android:src="@drawable/delete"
+			android:clickable="true"
+			android:focusable="true"
+			android:onClick="onClickStatistic"
+			/>
 
 	</RelativeLayout>
 
 
-	<!--underhead -->
 	<LinearLayout
 		android:id="@+id/underhead"
 		android:layout_width="match_parent"
@@ -207,7 +214,9 @@
 		android:layout_alignParentBottom="true"
 		android:orientation="horizontal"
 		android:layout_marginTop="78dp"
-		app:layout_constraintTop_toTopOf="parent">
+		app:layout_constraintTop_toTopOf="parent"
+		android:background="@color/dark_pink"
+		android:elevation="8dp">
 
 		<RelativeLayout
 			android:id="@+id/first_item"
@@ -220,7 +229,11 @@
 				android:id="@+id/rectangle_5"
 				android:layout_width="match_parent"
 				android:layout_height="54dp"
-				android:background="@color/bled_purp" />
+				android:background="@color/bled_purp"
+				android:clickable="true"
+				android:focusable="true"
+				android:onClick="onClickNotes"
+				/>
 
 			<TextView
 				android:id="@+id/notes"
@@ -246,7 +259,11 @@
 				android:id="@+id/rectangle_6"
 				android:layout_width="match_parent"
 				android:layout_height="54dp"
-				android:background="@color/bled_purp" />
+				android:background="@color/bled_purp"
+				android:clickable="true"
+				android:focusable="true"
+				android:onClick="onClickZads"
+				/>
 
 			<TextView
 				android:id="@+id/ex"
@@ -271,7 +288,11 @@
 				android:id="@+id/rectangle_7"
 				android:layout_width="match_parent"
 				android:layout_height="54dp"
-				android:background="@color/dark_pink" />
+				android:background="@color/dark_pink"
+				android:clickable="true"
+				android:focusable="true"
+				android:onClick="onClickWonts"
+				/>
 
 			<TextView
 				android:id="@+id/wonts"
@@ -328,7 +349,7 @@
 			android:layout_marginTop="15dp"
 			android:layout_width="263dp"
 			android:layout_height="47.5dp"
-			android:text="Title"
+			android:hint="Title"
 			android:fontFamily="@font/kav"
 			/>
 

@@ -4,6 +4,7 @@
 package com.example.diary;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -47,6 +48,29 @@ public class note_ex_activity extends Activity {
         //custom code goes here
 
     }
+
+    public void onClickNotes(View view){
+        Intent intent = new Intent (this, menu_activity.class);
+        startActivity(intent);
+    }
+    public void onClickZads(View view){
+        Intent intent = new Intent (this,zad_activity.class);
+        startActivity(intent);
+    }
+    public void onClickWonts(View view){
+        Intent intent = new Intent (this,wonts_activity.class);
+        startActivity(intent);
+    }
+//save доделать
+//	public void onClickNewNote(View view){
+//		Intent intent = new Intent (this,note_activity.class);
+//		startActivity(intent);
+//	}
+// delete доделать
+//	public void onClickStatistic(View view){
+//		Intent intent = new Intent (this,emotions_activity.class);
+//		startActivity(intent);
+//	}
 }
 	
 	
