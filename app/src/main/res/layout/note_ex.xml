@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ScrollView android:id="@+id/note"
+    <ScrollView android:id="@+id/note_example"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/mind"
@@ -15,7 +15,7 @@
         app:layout_constraintBottom_toTopOf="@id/underfoot">
 
         <TextView
-            android:id="@+id/user_input_text"
+            android:id="@+id/text_from_author"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -111,7 +111,7 @@
             android:text="@string/_04_03_24_string"
             />
 
-        <TextView android:id="@+id/name_of_zad_text"
+        <TextView android:id="@+id/name_of_text_from_author"
             android:textStyle="italic"
             android:layout_gravity="center_horizontal|center"
             android:gravity="center"

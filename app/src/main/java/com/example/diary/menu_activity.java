@@ -55,7 +55,7 @@ public class menu_activity extends Activity {
 	}
 
 	public void onClickRealNote(View view){
-		Intent intent = new Intent (this,noteexample_activity.class);
+		Intent intent = new Intent (this, note_ex_activity.class);
 		startActivity(intent);
 	}
 
