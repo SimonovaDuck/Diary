@@ -20,6 +20,7 @@ public class registration_activity extends Activity {
 	public TextView ent;
 
 
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -34,8 +35,7 @@ public class registration_activity extends Activity {
 		login = findViewById(R.id.login);
 		password = findViewById(R.id.password);
 		email = findViewById(R.id.email);
-		ent = findViewById
-				(R.id.ent);
+		ent = findViewById(R.id.ent);
 
 
 
