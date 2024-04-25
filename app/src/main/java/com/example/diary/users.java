@@ -1,25 +1,25 @@
 package com.example.diary;
 
 public class users {
-    private String email, username, password;
+    private String email, login, password;
 
     public users(){
 
     }
 
     //конструктор для всех переменных
-    public users (String username, String email, String password){
+    public users (String login, String email, String password){
         this.password = password;
         this.email = email;
-        this.username = username;
+        this.login = login;
     }
     // метод получения переменных
-    public String getUsername(){
-        return username;
+    public String getlogin(){
+        return login;
     }
     //установка
-    public void setUsername(String username){
-        this.username = username;
+    public void setlogin(String login){
+        this.login = login;
     }
 
     public String getEmail(){

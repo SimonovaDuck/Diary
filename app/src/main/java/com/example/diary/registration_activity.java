@@ -28,8 +28,8 @@ public class registration_activity extends Activity {
 	private TextView reg;
 	private TextView quest;
 	public TextView ent;
-	private EditText usernamedt, emaildt, passworddt;
-	private String username, email, password;
+	private EditText logindt, emaildt, passworddt;
+	private String login, email, password;
 	private FirebaseFirestore db;
 	private Button button_reg;
 
@@ -46,24 +46,24 @@ public class registration_activity extends Activity {
 		quest = findViewById(R.id.quest);
 		passworddt = findViewById(R.id.rectangle_13);
 		emaildt = findViewById(R.id.rectangle_14);
-		usernamedt = findViewById(R.id.rectangle_12);
+		logindt = findViewById(R.id.rectangle_12);
 		ent = findViewById(R.id.ent);
 		button_reg = findViewById(R.id.registration_bt);
 
 		button_reg.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				username = usernamedt.getText().toString();
+				login = logindt.getText().toString();
 				email = emaildt.getText().toString();
 				password = passworddt.getText().toString();
-				if (TextUtils.isEmpty(username)) {
-					usernamedt.setError("Пожалуйста введите имя");
+				if (TextUtils.isEmpty(login)) {
+					logindt.setError("Пожалуйста введите имя");
 				} else if (TextUtils.isEmpty(email)) {
 					emaildt.setError("Пожалуйста введите email");
 				} else if (TextUtils.isEmpty(password)) {
 					passworddt.setError("Пожалуйста введите пароль");
 				} else {
-					addDataToFirestore(username,email, password);
+					addDataToFirestore(login,email, password);
 				}
 			}
 
@@ -79,10 +79,10 @@ public class registration_activity extends Activity {
 
 
 
-	private void addDataToFirestore(String username, String email, String password) {
+	private void addDataToFirestore(String login, String email, String password) {
 		CollectionReference dbusers = db.collection("users");
 
-		users user = new users(username, email, password);
+		users user = new users(login, email, password);
 		dbusers.whereEqualTo("email", email).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
 			@Override
 			public void onSuccess(QuerySnapshot querySnapshot) {
