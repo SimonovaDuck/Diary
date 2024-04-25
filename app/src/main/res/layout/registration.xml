@@ -80,7 +80,7 @@
 			android:textSize="18sp"
 			android:textColor="@color/texts"
 			android:layout_marginLeft="107dp"
-			android:layout_below="@+id/registration"
+			android:layout_below="@+id/registration_bt"
 			android:layout_centerHorizontal="true"
 			android:layout_gravity="center_horizontal|center"
 			android:layout_marginTop="20dp"
@@ -135,7 +135,7 @@
 			android:id="@+id/ent"
 			android:layout_width="wrap_content"
 			android:layout_height="48dp"
-			android:layout_below="@+id/registration"
+			android:layout_below="@+id/registration_bt"
 			android:layout_centerHorizontal="true"
 			android:layout_gravity="center_horizontal|center"
 			android:layout_marginTop="45dp"
@@ -150,8 +150,8 @@
 			android:textSize="18sp" />
 
 
-		<TextView
-			android:id="@+id/registration"
+		<Button
+			android:id="@+id/registration_bt"
 			android:layout_width="wrap_content"
 			android:layout_height="48dp"
 			android:layout_below="@+id/rectangle_14"
@@ -167,7 +167,8 @@
 			android:text="Зарегестрироваться"
 			android:fontFamily="@font/kav"
 			android:textColor="@color/texts"
-			android:textSize="18sp" />
+			android:textSize="18sp"
+			android:textAllCaps="false" />
 	</RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

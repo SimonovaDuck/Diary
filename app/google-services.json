@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "1004222567643",
-    "project_id": "diary-4feeb",
-    "storage_bucket": "diary-4feeb.appspot.com"
+    "project_number": "651835337662",
+    "firebase_url": "https://diary-d4238-default-rtdb.firebaseio.com",
+    "project_id": "diary-d4238",
+    "storage_bucket": "diary-d4238.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1004222567643:android:f55bdeb40b2a5cbf9728fe",
+        "mobilesdk_app_id": "1:651835337662:android:4eb8610dcad8b46ae027ef",
         "android_client_info": {
           "package_name": "com.example.diary"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyA-zkjIsLn3mxGl0wNX3LNOLeMV5oyhzww"
+          "current_key": "AIzaSyAWiS3TFhg5r-C-CAoZMvHcYzt9sGMiQJY"
         }
       ],
       "services": {
