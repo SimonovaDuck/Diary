@@ -2,7 +2,6 @@ package com.example.diary;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 
 
@@ -18,12 +17,12 @@ public class enter_activity extends Activity {
 		entering = findViewById(R.id.entering);
 
 		// Создаем Handler с задержкой 2 секунды (2000 миллисекунд)
-		new Handler().postDelayed(new Runnable() {
-			@Override
-			public void run() {
-				// Изменяем макет текущей активности на другой макет
-				setContentView(R.layout.registration); // Замените other_layout на имя вашего другого макета
-			}
-		}, 2000); // 2000 миллисекунд (2 секунды) задержки
+//		new Handler().postDelayed(new Runnable() {
+//			@Override
+//			public void run() {
+//				// Изменяем макет текущей активности на другой макет
+//				setContentView(R.layout.registration);
+//			}
+//		}, 2000); // 2000 миллисекунд (2 секунды) задержки
 	}
 }
