@@ -8,7 +8,7 @@ public class users {
     }
 
     //конструктор для всех переменных
-    public users (String email, String username, String password){
+    public users (String username, String email, String password){
         this.password = password;
         this.email = email;
         this.username = username;

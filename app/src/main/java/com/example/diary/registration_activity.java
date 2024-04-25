@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +18,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 
 
@@ -61,9 +63,7 @@ public class registration_activity extends Activity {
 				} else if (TextUtils.isEmpty(password)) {
 					passworddt.setError("Пожалуйста введите пароль");
 				} else {
-					addDataToFirestore(username, email, password);
-					Intent intent = new Intent (v.getContext(),enteryes_activity.class);
-					startActivity(intent);
+					addDataToFirestore(username,email, password);
 				}
 			}
 
@@ -82,18 +82,37 @@ public class registration_activity extends Activity {
 	private void addDataToFirestore(String username, String email, String password) {
 		CollectionReference dbusers = db.collection("users");
 
-		users users = new users(username, email, password);
-		dbusers.add(users).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+		users user = new users(username, email, password);
+		dbusers.whereEqualTo("email", email).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
 			@Override
-			public void onSuccess(DocumentReference documentReference) {
-				Toast.makeText(registration_activity.this, "Аккаунт был добавлен в базу данных", Toast.LENGTH_SHORT).show();
+			public void onSuccess(QuerySnapshot querySnapshot) {
+				if (!querySnapshot.isEmpty()) {
+					Toast.makeText(registration_activity.this, "Аккаунт с этим email уже существует", Toast.LENGTH_SHORT).show();
+				} else {
+					Log.d("RegistrationActivity", "Email is unique. Adding user to Firestore.");
+					dbusers.add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+						@Override
+						public void onSuccess(DocumentReference documentReference) {
+							Toast.makeText(registration_activity.this, "Аккаунт был добавлен в базу данных", Toast.LENGTH_SHORT).show();
+							Intent intent = new Intent(registration_activity.this, enteryes_activity.class);
+							startActivity(intent);
+						}
+					}).addOnFailureListener(new OnFailureListener() {
+						@Override
+						public void onFailure(@NonNull Exception e) {
+							Toast.makeText(registration_activity.this, "Ошибка при добавлении аккаунта: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+						}
+					});
+				}
 			}
 		}).addOnFailureListener(new OnFailureListener() {
 			@Override
 			public void onFailure(@NonNull Exception e) {
-				Toast.makeText(registration_activity.this, "Fail to add course \n" + e, Toast.LENGTH_SHORT).show();
+				Toast.makeText(registration_activity.this, "Ошибка при проверке существования аккаунта: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+				Log.e("RegistrationActivity", "Failed to check existing account", e);
 			}
 		});
+
 	}
 }
 
