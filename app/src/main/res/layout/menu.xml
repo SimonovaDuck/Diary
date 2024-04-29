@@ -171,10 +171,12 @@
 		android:layout_above="@id/foot"
 		app:layout_constraintTop_toBottomOf="@id/underhead"
 		app:layout_constraintBottom_toTopOf="@id/foot"
-
 		>
-
-
+		<LinearLayout
+			android:id="@+id/menu_layout"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
 			<RelativeLayout android:id="@+id/block"
 				android:layout_marginTop="5dp"
 				android:layout_marginStart="0dp"
@@ -182,9 +184,6 @@
 				android:layout_height="match_parent"
 
 				>
-
-
-
 					<View   android:id="@+id/block_1"
 						android:background="@color/bled_purp"
 						 android:layout_marginStart="0dp"
@@ -216,9 +215,10 @@
 						android:clickable="true"
 						android:focusable="true"
 						android:onClick="onClickRealNote"/>
-
 				</RelativeLayout>
 
+
+		</LinearLayout>
 
 	</ScrollView>
 

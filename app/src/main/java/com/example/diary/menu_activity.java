@@ -5,54 +5,81 @@
 
 package com.example.diary;
 
-	import android.app.Activity;
-	import android.content.Intent;
-	import android.os.Bundle;
-	import android.view.View;
-	import android.widget.ImageView;
-	import android.widget.TextView;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class menu_activity extends Activity {
 
-	
-	private TextView _04_03_24;
-	public View rectangle_5;
-
-	public View rectangle_6;
-	public View rectangle_7;
-
-	private View rectangle_1;
-	private TextView diary;
-
-	private View foot;
 
 	public TextView __1;
 
 	public ImageView stat;
 
 	public ImageView create_new_text;
+	private List<View> noteBlocks = new ArrayList<>();
+
+	private static final int REQUEST_CODE_NEW_NOTE = 1;
+
+	private FirebaseFirestore db; // Объект для работы с базой данных Cloud Firestore
+
+
+
+
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.menu);
+		noteBlocks = new ArrayList<>();
+
+		__1 = findViewById(R.id.__1);
+		create_new_text = findViewById(R.id.create_new_text);
+		stat = findViewById(R.id.stat);
+
+		db = FirebaseFirestore.getInstance(); // Получение экземпляра Cloud Firestore
+
+		// Загрузка и отображение записей пользователя
+		loadUserNotes();
 
 
-		_04_03_24 = (TextView) findViewById(R.id._04_03_24);
-		rectangle_5 = (View) findViewById(R.id.rectangle_5);
-		rectangle_6 = (View) findViewById(R.id.rectangle_6);
-		rectangle_7 = (View) findViewById(R.id.rectangle_7);
-		rectangle_1 = (View) findViewById(R.id.rectangle_1);
-		diary = (TextView) findViewById(R.id.diary);
-		foot = (View) findViewById(R.id.foot);
-
-		__1 = (TextView) findViewById(R.id.__1);
-
-		create_new_text = (ImageView) findViewById(R.id.create_new_text);
-		stat = (ImageView) findViewById(R.id.stat);
 	
 	}
+	private void loadUserNotes() {
+		// Получение записей определенного пользователя из базы данных Cloud Firestore
+		db.collection("notes")
+				.get()
+				.addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+					@Override
+					public void onComplete(Task<QuerySnapshot> task) {
+						if (task.isSuccessful()) {
+							for (QueryDocumentSnapshot document : task.getResult()) {
+								String noteTitle = document.getString("title");
+								addNewNoteBlock(noteTitle); // Добавление каждой записи на экран
+							}
+						} else {
+							// Обработка ошибки
+						}
+					}
+				});
+	}
+
 
 	public void onClickRealNote(View view){
 		Intent intent = new Intent (this, note_ex_activity.class);
@@ -81,6 +108,33 @@ public class menu_activity extends Activity {
 	public void onClickStatistic(View view){
 		Intent intent = new Intent (this,emotions_activity.class);
 		startActivity(intent);
+	}
+
+
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+
+		if (requestCode == REQUEST_CODE_NEW_NOTE && resultCode == RESULT_OK) {
+			String noteTitle = data.getStringExtra("note_title");
+			addNewNoteBlock(noteTitle); // Добавляем новую запись в список
+		}
+	}
+
+	private void addNewNoteBlock(String noteTitle) {
+		// Инфлейтим макет note_card.xml
+		LayoutInflater inflater = LayoutInflater.from(this);
+		View noteCard = inflater.inflate(R.layout.note_card, null);
+
+		// Найдем TextView в карточке и установим заголовок
+		TextView titleTextView = noteCard.findViewById(R.id.title_from_user);
+		titleTextView.setText(noteTitle);
+
+		// Добавляем карточку в контейнер в меню
+		LinearLayout menuLayout = findViewById(R.id.menu_layout);
+		menuLayout.addView(noteCard);
+
+		// Сохраняем созданную карточку для возможности последующего обращения к ней
+		noteBlocks.add(noteCard);
 	}
 
 
