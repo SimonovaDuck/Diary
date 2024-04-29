@@ -312,16 +312,16 @@
             android:layout_width="match_parent"
             android:layout_height="74dp" />
 
-        <TextView android:id="@+id/note_cic"
-            android:textStyle="italic"
-            android:textSize="15sp"
-            android:textColor="@color/texts"
+        <TextView
+            android:id="@+id/note_cic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="19dp"
             android:layout_marginTop="10dp"
-            android:layout_width="336.5dp"
-            android:layout_height="55.5dp"
             android:text="Цитата дня: "
-            />
+            android:textColor="@color/texts"
+            android:textSize="15sp"
+            android:textStyle="italic"/>
 
 
 

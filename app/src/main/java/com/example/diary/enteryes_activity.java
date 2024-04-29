@@ -2,11 +2,11 @@ package com.example.diary;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,11 +18,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
-
 public class enteryes_activity extends Activity {
 
-
-	public TextView ent;
 	private FirebaseFirestore db;
 	private EditText logindt, passwordt;
 
@@ -31,15 +28,12 @@ public class enteryes_activity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.enteryes);
 		db = FirebaseFirestore.getInstance();
-
-
 	}
+
 	public void onClickReg(View view){
 		Intent intent = new Intent (this, registration_activity.class);
 		startActivity(intent);
 	}
-
-
 
 	public void onClickEnter(View view){
 		logindt = findViewById(R.id.rectangle_12);
@@ -62,6 +56,8 @@ public class enteryes_activity extends Activity {
 						String storedPassword = document.getString("password");
 						if (storedPassword.equals(password)) {
 							// Пароль совпадает, вход выполнен успешно
+							// Сохраняем информацию о входе пользователя
+							saveLoginStatus(true);
 							// Здесь вы можете перейти на другую активность или выполнить другие действия
 							Intent intent = new Intent(enteryes_activity.this, menu_activity.class);
 							startActivity(intent);
@@ -82,5 +78,12 @@ public class enteryes_activity extends Activity {
 				Toast.makeText(enteryes_activity.this, "Ошибка при попытке входа: " + e.getMessage(), Toast.LENGTH_SHORT).show();
 			}
 		});
+	}
+
+	private void saveLoginStatus(boolean isLoggedIn) {
+		SharedPreferences preferences = getSharedPreferences("LoginStatus", MODE_PRIVATE);
+		SharedPreferences.Editor editor = preferences.edit();
+		editor.putBoolean("isLoggedIn", isLoggedIn);
+		editor.apply();
 	}
 }

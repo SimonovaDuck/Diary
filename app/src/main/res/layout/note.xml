@@ -203,11 +203,16 @@
 
 		<View
 			android:id="@+id/rectangle_99"
-			android:layout_width="match_parent"
+			android:layout_width="wrap_content"
 			android:layout_height="74.55dp"
 			android:layout_marginStart="0dp"
 			android:layout_marginTop="0dp"
-			android:background="@color/bled_purp" />
+			android:background="@color/bled_purp"
+			app:layout_constraintTop_toBottomOf="@id/name_of_text"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintDimensionRatio="16:9"
+			/>
 
 		<TextView android:id="@+id/_04_03_24"
 			android:textStyle="italic"
@@ -220,7 +225,7 @@
 			android:text="@string/_04_03_24_string"
 			/>
 
-		<EditText android:id="@+id/name_of_zad_text"
+		<EditText android:id="@+id/name_of_text"
 			android:textStyle="italic"
 			android:layout_gravity="center_horizontal|center"
 			android:gravity="center"
@@ -233,6 +238,8 @@
 			android:hint="Title"
 			android:fontFamily="@font/kav"
 			android:background="@null"
+			android:inputType="textMultiLine"
+
 			/>
 
 	</RelativeLayout>
@@ -301,9 +308,10 @@
 	<RelativeLayout
 		android:id="@+id/underfoot"
 		android:layout_width="match_parent"
-		android:layout_height="150dp"
+		android:layout_height="210dp"
 		app:layout_constraintBottom_toTopOf="@id/foot"
-		android:layout_marginBottom="5dp">
+		android:layout_marginBottom="5dp"
+		android:layout_above="@id/foot">
 
 
 		<View   android:id="@+id/rectangle_9_rec"
@@ -311,18 +319,40 @@
 				android:layout_marginStart="0dp"
 				android:layout_marginTop="0dp"
 				android:layout_width="match_parent"
-				android:layout_height="74dp" />
+				android:layout_height="100dp" />
 
-			<TextView android:id="@+id/note_cic"
-				android:textStyle="italic"
-				android:textSize="15sp"
-				android:textColor="@color/texts"
-				android:layout_marginLeft="19dp"
-				android:layout_marginTop="10dp"
-				android:layout_width="336.5dp"
-				android:layout_height="55.5dp"
-				android:text="Цитата дня: "
-				/>
+		<TextView
+			android:id="@+id/note_cic"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="19dp"
+			android:layout_marginTop="10dp"
+			android:text="Цитата дня: "
+			android:textColor="@color/texts"
+			android:textSize="15sp"
+			android:textStyle="italic" />
+		<TextView
+			android:id="@+id/note_cic_new"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="115dp"
+			android:layout_marginTop="10dp"
+			android:text=""
+			android:textColor="@color/texts"
+			android:textSize="15sp"
+			android:textStyle="italic" />
+
+		<TextView
+			android:id="@+id/note_cic_author"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignBottom="@+id/rectangle_9_rec"
+			android:layout_marginLeft="115dp"
+			android:layout_marginBottom="3dp"
+			android:text=""
+			android:textColor="@color/text_light"
+			android:textSize="15sp"
+			android:textStyle="italic" />
 
 
 
@@ -331,7 +361,7 @@
 				android:layout_marginStart="0dp"
 				android:layout_marginTop="0dp"
 				android:layout_width="match_parent"
-				android:layout_height="74dp"
+				android:layout_height="110dp"
 				android:layout_below="@id/rectangle_9_rec"
 				/>
 
@@ -341,11 +371,28 @@
 				android:textColor="@color/texts"
 				android:layout_marginLeft="19dp"
 				android:layout_marginTop="15dp"
-				android:layout_width="336.5dp"
-				android:layout_height="38.5dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
 				android:text="Задание на день: "
 				android:layout_below="@id/rectangle_9_rec"
 				/>
+		<ScrollView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/rectangle_9_rec"
+			android:layout_marginTop="15dp"
+			android:layout_marginLeft="145dp">
+
+			<TextView
+				android:id="@+id/new_zadanie"
+				android:textStyle="italic"
+				android:textSize="15sp"
+				android:textColor="@color/texts"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text=""
+				android:padding="5dp" />
+		</ScrollView>
 
 	</RelativeLayout>
 
