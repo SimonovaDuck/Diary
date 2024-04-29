@@ -16,6 +16,8 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -54,16 +56,20 @@ public class menu_activity extends Activity {
 		stat = findViewById(R.id.stat);
 
 		db = FirebaseFirestore.getInstance(); // Получение экземпляра Cloud Firestore
-
-		// Загрузка и отображение записей пользователя
-		loadUserNotes();
-
-
-	
+		// Получение текущего пользователя и загрузка его заметок
+		FirebaseAuth mAuth = FirebaseAuth.getInstance();
+		FirebaseUser currentUser = mAuth.getCurrentUser();
+		if (currentUser != null) {
+			String currentUserId = currentUser.getUid();
+			loadUserNotes(currentUserId); // Загрузка заметок текущего пользователя
+		} else {
+			// Пользователь не аутентифицирован, выполните соответствующие действия
+		}
 	}
-	private void loadUserNotes() {
+	private void loadUserNotes(String userId) {
 		// Получение записей определенного пользователя из базы данных Cloud Firestore
 		db.collection("notes")
+				.whereEqualTo("userId", userId) // Фильтр по полю "userId"
 				.get()
 				.addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
 					@Override
