@@ -1,8 +1,4 @@
 
-	 
-
-	
-
 package com.example.diary;
 
 import android.app.Activity;
@@ -51,7 +47,7 @@ public class menu_activity extends Activity {
 		setContentView(R.layout.menu);
 		noteBlocks = new ArrayList<>();
 
-		__1 = findViewById(R.id.__1);
+
 		create_new_text = findViewById(R.id.create_new_text);
 		stat = findViewById(R.id.stat);
 
@@ -77,20 +73,37 @@ public class menu_activity extends Activity {
 						if (task.isSuccessful()) {
 							for (QueryDocumentSnapshot document : task.getResult()) {
 								String noteTitle = document.getString("title");
-								addNewNoteBlock(noteTitle); // Добавление каждой записи на экран
+								String noteId = document.getId(); // Получаем идентификатор записи
+								addNewNoteBlock(noteTitle, noteId); // Добавление каждой записи на экран с указанием идентификатора
 							}
-						} else {
-							// Обработка ошибки
 						}
 					}
 				});
 	}
 
 
-	public void onClickRealNote(View view){
-		Intent intent = new Intent (this, note_ex_activity.class);
+
+	public void onClickRealNote(View view) {
+		// Получаем макет note_card.xml из родительского View, на котором произошел клик
+		View noteCard = (View) view.getParent();
+
+		// Получаем текст заголовка из TextView в макете note_card.xml
+		TextView titleTextView = noteCard.findViewById(R.id.title_from_user);
+		String noteTitle = titleTextView.getText().toString();
+
+		// Получаем noteId из TextView в макете note_card.xml
+		TextView idTextView = noteCard.findViewById(R.id.note_id);
+		String noteId = idTextView.getText().toString();
+
+		// Создаем новый Intent
+		Intent intent = new Intent(this, note_ex_activity.class);
+		// Передаем заголовок и идентификатор записи в Intent
+		intent.putExtra("note_id", noteId);
+		intent.putExtra("note_title", noteTitle);
+		// Запускаем новую активити с переданными данными о записи
 		startActivity(intent);
 	}
+
 
 
 	public void onClickNotes(View view){
@@ -117,16 +130,19 @@ public class menu_activity extends Activity {
 	}
 
 
+	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 
 		if (requestCode == REQUEST_CODE_NEW_NOTE && resultCode == RESULT_OK) {
 			String noteTitle = data.getStringExtra("note_title");
-			addNewNoteBlock(noteTitle); // Добавляем новую запись в список
+			String noteId = data.getStringExtra("note_id"); // Получаем идентификатор записи
+			addNewNoteBlock(noteTitle, noteId); // Добавляем новую запись в список
 		}
 	}
 
-	private void addNewNoteBlock(String noteTitle) {
+
+	private void addNewNoteBlock(String noteTitle, String noteId) {
 		// Инфлейтим макет note_card.xml
 		LayoutInflater inflater = LayoutInflater.from(this);
 		View noteCard = inflater.inflate(R.layout.note_card, null);
@@ -135,6 +151,10 @@ public class menu_activity extends Activity {
 		TextView titleTextView = noteCard.findViewById(R.id.title_from_user);
 		titleTextView.setText(noteTitle);
 
+		// Найдем TextView для noteId и установим значение
+		TextView idTextView = noteCard.findViewById(R.id.note_id);
+		idTextView.setText(noteId);
+
 		// Добавляем карточку в контейнер в меню
 		LinearLayout menuLayout = findViewById(R.id.menu_layout);
 		menuLayout.addView(noteCard);
@@ -142,6 +162,7 @@ public class menu_activity extends Activity {
 		// Сохраняем созданную карточку для возможности последующего обращения к ней
 		noteBlocks.add(noteCard);
 	}
+
 
 
 }

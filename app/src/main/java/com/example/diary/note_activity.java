@@ -174,6 +174,7 @@ public class note_activity extends Activity {
 					.addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
 						@Override
 						public void onSuccess(DocumentReference documentReference) {
+							String noteId = documentReference.getId(); // Получаем айдишник добавленной заметки
 							// Успешно добавлено
 							Toast.makeText(note_activity.this, "Заметка успешно создана", Toast.LENGTH_SHORT).show();
 							// Очищаем поля ввода после добавления записи

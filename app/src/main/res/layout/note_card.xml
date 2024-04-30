@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <RelativeLayout android:id="@+id/block"
         android:layout_marginTop="5dp"
         android:layout_marginStart="0dp"
@@ -9,6 +10,11 @@
         android:layout_height="match_parent"
 
         >
+        <TextView
+            android:id="@+id/note_id"
+            android:visibility="gone"
+            android:layout_height="0dp"
+            android:layout_width="0dp"/>
         <View   android:id="@+id/block_1"
             android:background="@color/bled_purp"
             android:layout_marginStart="0dp"

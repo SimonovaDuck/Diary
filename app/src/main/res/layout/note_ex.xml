@@ -14,7 +14,7 @@
         app:layout_constraintTop_toBottomOf="@id/name_of_note"
         app:layout_constraintBottom_toTopOf="@id/underfoot">
 
-        <TextView
+        <EditText
             android:id="@+id/text_from_author"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,8 +23,9 @@
             android:layout_marginEnd="16dp"
             android:fontFamily="@font/kav"
             android:gravity="top|start"
-            android:text="В данном приложении вы можете писать все, что душе угодно, также здесь есть много разных плюшек, надеюсь, вам понравится  Удачи в использовании)))"
-            android:inputType="textMultiLine" />
+            android:text=""
+            android:inputType="textMultiLine"
+            android:background="@null"/>
 
     </ScrollView>
 
@@ -220,7 +221,7 @@
             android:text="@string/_04_03_24_string"
             />
 
-        <TextView android:id="@+id/name_of_text_from_author"
+        <EditText android:id="@+id/name_of_text_from_author"
             android:textStyle="italic"
             android:layout_gravity="center_horizontal|center"
             android:gravity="center"
@@ -232,7 +233,7 @@
             android:layout_height="47.5dp"
             android:fontFamily="@font/kav"
             android:background="@null"
-            android:text="Приветствую, пользователь!"
+            android:text=""
             />
 
     </RelativeLayout>
