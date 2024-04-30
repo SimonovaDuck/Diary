@@ -185,13 +185,15 @@ public class note_activity extends Activity {
 			// Пользователь не аутентифицирован, обработайте этот случай по вашему усмотрению
 			Toast.makeText(note_activity.this, "Пользователь не аутентифицирован", Toast.LENGTH_SHORT).show();
 		}
+		Intent intent = new Intent (this, menu_activity.class);
+		startActivity(intent);
 	}
 
 
 // delete доделать
-//	public void onClickStatistic(View view){
-//		Intent intent = new Intent (this,emotions_activity.class);
-//		startActivity(intent);
-//	}
+	public void onClickDelete(View view){
+		Intent intent = new Intent (this, menu_activity.class);
+		startActivity(intent);
+	}
 
 }

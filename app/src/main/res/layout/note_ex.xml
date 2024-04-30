@@ -85,7 +85,7 @@
             android:src="@drawable/delete"
             android:clickable="true"
             android:focusable="true"
-            android:onClick="onClickStatistic"
+            android:onClick="onClickDelete"
             />
 
     </RelativeLayout>
@@ -304,7 +304,7 @@
         android:layout_width="match_parent"
         android:layout_height="210dp"
         app:layout_constraintBottom_toTopOf="@id/foot"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="3dp"
         android:layout_above="@id/foot">
 
 

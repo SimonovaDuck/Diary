@@ -21,6 +21,8 @@ private EditText name_of_text_from_author, text_from_author;
 private TextView new_zadanie, note_cic_author, note_cic_new;
 private FirebaseFirestore db;
 private String quoteId, taskId, quoteAuthor;
+private String noteId;
+
 
 
 
@@ -35,7 +37,7 @@ private String quoteId, taskId, quoteAuthor;
         // Получаем айдишник записи из Intent
         Intent intent = getIntent();
         if (intent != null) {
-            String noteId = intent.getStringExtra("note_id");
+            noteId = intent.getStringExtra("note_id");
             if (noteId != null) {
                 // Инициализируем Firebase
                 db = FirebaseFirestore.getInstance();
@@ -125,15 +127,64 @@ private String quoteId, taskId, quoteAuthor;
         startActivity(intent);
     }
 //save доделать
-//	public void onClickNewNote(View view){
-//		Intent intent = new Intent (this,note_activity.class);
-//		startActivity(intent);
-//	}
+	public void onClickNewNote(View view){
+        // Получаем новые значения текста и контента из элементов интерфейса
+        String newTitle = name_of_text_from_author.getText().toString();
+        String newContent = text_from_author.getText().toString();
+
+        // Обновляем документ в базе данных
+        updateNoteInDatabase(newTitle, newContent);
+	}
+    private void updateNoteInDatabase(String newTitle, String newContent) {
+        // Проверяем, что у нас есть идентификатор записи
+        if (noteId != null) {
+            // Получаем ссылку на документ записи в коллекции "notes"
+            DocumentReference noteRef = db.collection("notes").document(noteId);
+
+            // Обновляем поля "title" и "content" в документе
+            noteRef.update("title", newTitle, "content", newContent)
+                    .addOnSuccessListener(aVoid -> {
+                        // Успешное обновление данных
+                        Toast.makeText(this, "Текст успешно обновлен", Toast.LENGTH_SHORT).show();
+                    })
+                    .addOnFailureListener(e -> {
+                        // Обработка ошибок при обновлении данных
+                        Toast.makeText(this, "Ошибка при обновлении текста", Toast.LENGTH_SHORT).show();
+                    });
+        } else {
+            // Если идентификатор записи не определен, выведите сообщение об ошибке
+            Toast.makeText(this, "Идентификатор записи не найден", Toast.LENGTH_SHORT).show();
+        }
+        Intent intent = new Intent (this, menu_activity.class);
+        startActivity(intent);
+    }
 // delete доделать
-//	public void onClickStatistic(View view){
-//		Intent intent = new Intent (this,emotions_activity.class);
-//		startActivity(intent);
-//	}
+	public void onClickDelete(View view){
+        // Проверяем, что у нас есть идентификатор записи
+        if (noteId != null) {
+            // Получаем ссылку на документ записи в коллекции "notes"
+            DocumentReference noteRef = db.collection("notes").document(noteId);
+
+            // Удаляем документ из базы данных
+            noteRef.delete()
+                    .addOnSuccessListener(aVoid -> {
+                        // Успешное удаление записи
+                        Toast.makeText(this, "Запись успешно удалена", Toast.LENGTH_SHORT).show();
+
+                        // После успешного удаления, переходим на другую активность
+                        Intent intent = new Intent(this, menu_activity.class);
+                        startActivity(intent);
+                    })
+                    .addOnFailureListener(e -> {
+                        // Обработка ошибок при удалении
+                        Toast.makeText(this, "Ошибка при удалении записи", Toast.LENGTH_SHORT).show();
+                    });
+        } else {
+            // Если идентификатор записи не определен, выведите сообщение об ошибке
+            Toast.makeText(this, "Идентификатор записи не найден", Toast.LENGTH_SHORT).show();
+        }
+
+	}
 }
 	
 	
