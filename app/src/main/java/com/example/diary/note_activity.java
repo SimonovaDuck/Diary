@@ -32,25 +32,13 @@ public class note_activity extends Activity {
 
 	private FirebaseFirestore db;
 
-	private View _bg__note;
-
-	private View foot;
-
-
-
-	private View rectangle_5;
-
-	private View rectangle_6;
-	;
-	private View rectangle_7;
-
-	private View rectangle_1;
-	private TextView diary;
 	private TextView new_zadanie;
 
 	private EditText name_of_text;
 
 	private EditText user_input_text;
+
+	private String taskId, quoteId; // Поле для хранения айди задания
 
 
 
@@ -96,6 +84,7 @@ public class note_activity extends Activity {
 					// Обновите текст в TextView для цитаты и автора
 					note_cic_new.setText(quote);
 					note_cic_author.setText(author);
+					quoteId = document.getId();
 				}
 			}
 		});
@@ -120,6 +109,7 @@ public class note_activity extends Activity {
 
 					// Обновите текст в TextView для нового задания
 					new_zadanie.setText(taskText);
+					taskId = document.getId();
 				}
 			}
 		});
@@ -139,7 +129,7 @@ public class note_activity extends Activity {
 		startActivity(intent);
 	}
 	//save доделать
-	public void onClickNewNote(View view){
+	public void onClickNewNote(View view) {
 		// Получаем текст из полей ввода
 		name_of_text = findViewById(R.id.name_of_text);
 		user_input_text = findViewById(R.id.user_input_text);
@@ -167,6 +157,8 @@ public class note_activity extends Activity {
 			note.put("title", title);
 			note.put("content", content);
 			note.put("userId", userId); // Добавляем идентификатор пользователя
+			note.put("quoteId", quoteId); // Добавляем айдишник цитаты
+			note.put("taskId", taskId); // Добавляем айдишник задания
 
 			// Добавляем заметку в базу данных
 			db.collection("notes")
@@ -194,6 +186,7 @@ public class note_activity extends Activity {
 			Toast.makeText(note_activity.this, "Пользователь не аутентифицирован", Toast.LENGTH_SHORT).show();
 		}
 	}
+
 
 // delete доделать
 //	public void onClickStatistic(View view){
