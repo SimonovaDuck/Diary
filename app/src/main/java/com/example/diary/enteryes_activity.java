@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -32,7 +33,13 @@ public class enteryes_activity extends Activity {
 		passwordt = findViewById(R.id.rectangle_13);
 		String login = logindt.getText().toString();
 		String password = passwordt.getText().toString();
-		authenticateUser(login, password);
+		if (TextUtils.isEmpty(login) || TextUtils.isEmpty(password)) {
+			// Если поля пустые, выводим сообщение пользователю
+			Toast.makeText(this, "Пожалуйста, введите логин и пароль", Toast.LENGTH_SHORT).show();
+		} else {
+			// Если поля не пустые, производим аутентификацию пользователя
+			authenticateUser(login, password);
+		}
 	}
 
 	private void authenticateUser(String login, String password) {

@@ -3,7 +3,8 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	xmlns:app="http://schemas.android.com/apk/res-auto">
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:background="@color/mind">
 
 
 	<ScrollView android:id="@+id/example"
@@ -80,7 +81,7 @@
 			android:src="@drawable/delete"
 			android:clickable="true"
 			android:focusable="true"
-			android:onClick="onClickStatistic"
+			android:onClick="onClickDelete"
 			/>
 
 	</RelativeLayout>
@@ -201,7 +202,7 @@
 		<View
 			android:id="@+id/rectangle_9"
 			android:layout_width="match_parent"
-			android:layout_height="74.55dp"
+			android:layout_height="120dp"
 			android:layout_marginStart="0dp"
 			android:layout_marginTop="0dp"
 			android:background="@color/bled_purp" />
@@ -217,20 +218,23 @@
 			android:text="@string/_04_03_24_string"
 			/>
 
-		<TextView android:id="@+id/name_of_zad_text"
+
+		<TextView
+			android:id="@+id/name_of_zad_text"
 			android:textStyle="italic"
 			android:layout_gravity="center_horizontal|center"
 			android:gravity="center"
 			android:textSize="15sp"
 			android:textColor="@color/texts"
 			android:layout_marginLeft="8dp"
+			android:layout_marginRight="100dp"
 			android:layout_marginTop="15dp"
-			android:layout_width="263dp"
-			android:layout_height="47.5dp"
-			android:hint="Тут название задания"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text=""
 			android:fontFamily="@font/kav"
-			android:background="@null"
-			/>
+			android:background="@null" />
+
 
 	</RelativeLayout>
 

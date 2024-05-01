@@ -172,6 +172,8 @@ public class note_activity extends Activity {
 							// Очищаем поля ввода после добавления записи
 							name_of_text.setText("");
 							user_input_text.setText("");
+							// Создаем новую запись в коллекции "tasks"
+							createNewTask(taskId, userId);
 						}
 					})
 					.addOnFailureListener(new OnFailureListener() {
@@ -187,6 +189,31 @@ public class note_activity extends Activity {
 		}
 		Intent intent = new Intent (this, menu_activity.class);
 		startActivity(intent);
+	}
+	private void createNewTask(String taskId, String userId) {
+		// Создаем новую запись в коллекции "tasks"
+		Map<String, Object> task = new HashMap<>();
+		task.put("taskId", taskId); // Добавляем айдишник записи из "notes"
+		task.put("userId", userId); // Добавляем идентификатор пользователя
+		task.put("content", "");
+
+		// Добавляем задачу в коллекцию "tasks"
+		db.collection("tasks")
+				.add(task)
+				.addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+					@Override
+					public void onSuccess(DocumentReference documentReference) {
+						// Успешно добавлено
+						Toast.makeText(note_activity.this, "Задача успешно создана", Toast.LENGTH_SHORT).show();
+					}
+				})
+				.addOnFailureListener(new OnFailureListener() {
+					@Override
+					public void onFailure(@NonNull Exception e) {
+						// Ошибка при добавлении
+						Toast.makeText(note_activity.this, "Ошибка при создании задачи: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+					}
+				});
 	}
 
 

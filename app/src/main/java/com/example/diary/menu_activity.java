@@ -25,8 +25,6 @@ import java.util.List;
 public class menu_activity extends Activity {
 
 
-	public TextView __1;
-
 	public ImageView stat;
 
 	public ImageView create_new_text;

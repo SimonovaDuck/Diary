@@ -20,7 +20,10 @@
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onClickRealNote"/>
 
         <TextView android:id="@+id/_04_03_24"
             android:textStyle="italic"

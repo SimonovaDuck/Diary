@@ -6,6 +6,7 @@ package com.example.diary;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -50,6 +51,8 @@ private String noteId;
                             // Получаем контент записи из документа
                             String noteTitle = document.getString("title");
                             String noteContent = document.getString("content");
+                            Log.d("ExampleActivity", "noteId: " + noteId);
+                            Log.d("ExampleActivity", "noteTitle: " + noteTitle);
                             quoteId = document.getString("quoteId");
                             taskId = document.getString("taskId");
                             // Устанавливаем заголовок и контент записи в соответствующие элементы интерфейса
@@ -66,7 +69,10 @@ private String noteId;
                 });
             }
         }
+
     }
+
+
     private void getQuoteText(String quoteId) {
         if (quoteId != null) {
             DocumentReference quoteRef = db.collection("quote").document(quoteId);

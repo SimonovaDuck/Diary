@@ -3,46 +3,68 @@ package com.example.diary;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class example_activity extends Activity {
 
-	private View _bg__example;
-	private View foot;
-	private View rectangle_9;
-	private TextView _04_03_24;
-	private View rectangle_6;
-	private View rectangle_7;
-	private View rectangle_1;
-	private TextView diary;
-	private EditText editText;
-	private ScrollView scrollView;
 
 	public ImageView stat;
 
 	public ImageView create_new_text;
+
+	private EditText  user_input;
+	private TextView name_of_zad_text;
+	private FirebaseFirestore db;
+	private String zadId,zadTitle;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.example);
 
-		foot = findViewById(R.id.foot);
-		rectangle_9 = findViewById(R.id.rectangle_9);
-		_04_03_24 = findViewById(R.id._04_03_24);
-		rectangle_6 = findViewById(R.id.rectangle_6);
-		rectangle_7 = findViewById(R.id.rectangle_7);
-		rectangle_1 = findViewById(R.id.rectangle_1);
-		diary = findViewById(R.id.diary);
-		editText = findViewById(R.id.user_input);
-		scrollView = findViewById(R.id.example);
 
 		create_new_text = (ImageView) findViewById(R.id.create_new_text);
 		stat = (ImageView) findViewById(R.id.stat);
+		name_of_zad_text = (TextView) findViewById(R.id.name_of_zad_text);
+		user_input = (EditText) findViewById(R.id.user_input);
+
+
+
+		// Получаем айдишник записи из Intent
+		Intent intent = getIntent();
+		if (intent != null) {
+			zadId = intent.getStringExtra("zad_id");
+			zadTitle = intent.getStringExtra("zad_title");
+			Log.d("ExampleActivity", "zadId: " + zadId);
+			Log.d("ExampleActivity", "zadTitle: " + zadTitle);
+			if (zadId != null && zadTitle != null) { // Добавьте проверку zadTitle != null
+				// Инициализируем Firebase
+				db = FirebaseFirestore.getInstance();
+				// Получаем документ записи из базы данных
+				DocumentReference noteRef = db.collection("tasks").document(zadId);
+				noteRef.get().addOnCompleteListener(task -> {
+					if (task.isSuccessful()) {
+						DocumentSnapshot document = task.getResult();
+						if (document.exists()) {
+							// Получаем контент записи из документа
+							String zadContent = document.getString("content");
+							// Устанавливаем заголовок и контент записи в соответствующие элементы интерфейса
+							name_of_zad_text.setText(zadTitle);
+							user_input.setText(zadContent);
+						}
+					}
+				});
+			}
+		}
 
 	}
 
@@ -61,14 +83,60 @@ public class example_activity extends Activity {
 	}
 
 //save доделать
-//	public void onClickNewNote(View view){
-//		Intent intent = new Intent (this,note_activity.class);
-//		startActivity(intent);
-//	}
+public void onClickNewNote(View view){
+	// Получаем новые значения текста и контента из элементов интерфейса
+	String newContent = user_input.getText().toString();
+
+	// Обновляем документ в базе данных
+	updateNoteInDatabase(newContent);
+}
+	private void updateNoteInDatabase(String newContent) {
+		// Проверяем, что у нас есть идентификатор записи
+		if (zadId != null) {
+			// Получаем ссылку на документ записи в коллекции "notes"
+			DocumentReference noteRef = db.collection("tasks").document(zadId);
+
+			// Обновляем поля "content" в документе
+			noteRef.update( "content", newContent)
+					.addOnSuccessListener(aVoid -> {
+						// Успешное обновление данных
+						Toast.makeText(this, "Текст успешно обновлен", Toast.LENGTH_SHORT).show();
+					})
+					.addOnFailureListener(e -> {
+						// Обработка ошибок при обновлении данных
+						Toast.makeText(this, "Ошибка при обновлении текста", Toast.LENGTH_SHORT).show();
+					});
+		} else {
+			// Если идентификатор записи не определен, выведите сообщение об ошибке
+			Toast.makeText(this, "Идентификатор записи не найден", Toast.LENGTH_SHORT).show();
+		}
+		Intent intent = new Intent (this, zad_activity.class);
+		startActivity(intent);
+	}
 // delete доделать
-//	public void onClickStatistic(View view){
-//		Intent intent = new Intent (this,emotions_activity.class);
-//		startActivity(intent);
-//	}
+public void onClickDelete(View view){
+	// Проверяем, что у нас есть идентификатор записи
+	if (zadId != null) {
+		DocumentReference noteRef = db.collection("tasks").document(zadId);
+
+		// Обновляем содержимое поля "content" документа на пустую строку
+		noteRef.update("content", "")
+				.addOnSuccessListener(aVoid -> {
+					// Успешное удаление контента записи
+					Toast.makeText(this, "Контент успешно удален", Toast.LENGTH_SHORT).show();
+
+					Intent intent = new Intent (this, zad_activity.class);
+					startActivity(intent);
+
+				})
+				.addOnFailureListener(e -> {
+					// Обработка ошибок при удалении контента
+					Toast.makeText(this, "Ошибка при удалении контента", Toast.LENGTH_SHORT).show();
+				});
+	} else {
+		// Если идентификатор записи не определен, выведите сообщение об ошибке
+		Toast.makeText(this, "Идентификатор записи не найден", Toast.LENGTH_SHORT).show();
+	}
+}
 
 }

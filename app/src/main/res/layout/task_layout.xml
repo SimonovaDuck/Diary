@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout android:id="@+id/block"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+        <TextView
+            android:id="@+id/zad_id"
+            android:visibility="gone"
+            android:layout_height="0dp"
+            android:layout_width="0dp"/>
+
+        <View   android:id="@+id/block_1"
+            android:background="@color/bled_purp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onClickRealNote"/>
+
+        <TextView android:id="@+id/_04_03_24"
+            android:textStyle="italic"
+            android:textSize="13sp"
+            android:textColor="@color/text_light"
+            android:layout_marginLeft="290dp"
+            android:layout_marginTop="18dp"
+            android:layout_width="63.3dp"
+            android:layout_height="19.3dp"
+            android:text="@string/_04_03_24_string"
+            />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="33dp"
+            android:layout_marginRight="110dp"
+            android:layout_marginBottom="18dp">
+
+            <TextView
+                android:id="@+id/title_of_zad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/texts"
+                android:textSize="13sp"
+                android:textStyle="italic"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClickRealNote"/>
+        </ScrollView>
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
