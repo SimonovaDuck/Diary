@@ -215,31 +215,24 @@
 			app:layout_constraintDimensionRatio="16:9"
 			/>
 
-		<TextView android:id="@+id/_04_03_24"
-			android:textStyle="italic"
-			android:textSize="13sp"
-			android:textColor="@color/text_light"
-			android:layout_marginLeft="290dp"
-			android:layout_marginTop="18dp"
-			android:layout_width="63.3dp"
-			android:layout_height="26.66dp"
-			android:text="@string/_04_03_24_string"
-			/>
 
-		<EditText android:id="@+id/name_of_text"
-			android:textStyle="italic"
+		<EditText
+			android:id="@+id/name_of_text"
+			android:layout_width="match_parent"
+			android:layout_height="46dp"
 			android:layout_gravity="center_horizontal|center"
-			android:gravity="center"
-			android:textSize="15sp"
-			android:textColor="@color/texts"
-			android:layout_marginLeft="8dp"
+			android:layout_marginLeft="15dp"
 			android:layout_marginTop="15dp"
-			android:layout_width="263dp"
-			android:layout_height="47.5dp"
-			android:hint="Title"
-			android:fontFamily="@font/kav"
+			android:layout_marginRight="15dp"
 			android:background="@null"
+			android:fontFamily="@font/kav"
+			android:gravity="center"
+			android:hint="Title"
 			android:inputType="textMultiLine"
+			android:textColor="@color/texts"
+			android:textSize="20sp"
+			android:textStyle="italic"
+			android:maxLength="30"
 
 			/>
 

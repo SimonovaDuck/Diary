@@ -12,9 +12,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class note_ex_activity extends Activity {
 
@@ -23,6 +28,7 @@ private TextView new_zadanie, note_cic_author, note_cic_new;
 private FirebaseFirestore db;
 private String quoteId, taskId, quoteAuthor;
 private String noteId;
+private TextView dateTextView;
 
 
 
@@ -34,6 +40,7 @@ private String noteId;
         note_cic_new = findViewById(R.id.note_cic_new);
         note_cic_author = findViewById(R.id.note_cic_author);
         new_zadanie = findViewById(R.id.new_zadanie);
+        dateTextView = findViewById(R.id.date);
 
         // Получаем айдишник записи из Intent
         Intent intent = getIntent();
@@ -64,6 +71,10 @@ private String noteId;
                             getQuoteText(quoteId);
                             // Получаем текст задания из базы данных
                             getTaskText(taskId);
+                            Timestamp timestamp = (Timestamp) document.get("Date");
+                            Date date = timestamp.toDate();
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()); // Формат даты
+                            dateTextView.setText(sdf.format(date));
                         }
                     }
                 });

@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -19,8 +20,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class zad_activity extends Activity {
 
@@ -68,13 +72,15 @@ public class zad_activity extends Activity {
 							for (QueryDocumentSnapshot document : task.getResult()) {
 								String taskId = document.getString("taskId");
 								tasksId = document.getId();
-								addNewTaskBlock(tasksId,taskId); // Добавление каждой записи на экран с указанием идентификатора
+								Timestamp timestamp = (Timestamp) document.get("Date");
+								Date date = timestamp.toDate();
+								addNewTaskBlock(tasksId,taskId,date); // Добавление каждой записи на экран с указанием идентификатора
 							}
 						}
 					}
 				});
 	}
-	private void addNewTaskBlock(String tasksId,String taskId) {
+	private void addNewTaskBlock(String tasksId,String taskId,Date Date) {
 		// Получаем title из коллекции bank_ex по taskId
 		db.collection("bank_ex").document(taskId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
 			@Override
@@ -95,6 +101,10 @@ public class zad_activity extends Activity {
 						// Найдем TextView для noteId и установим значение
 						TextView idTextView = task_lay.findViewById(R.id.zad_id);
 						idTextView.setText(tasksId);
+
+						TextView dateTextView = task_lay.findViewById(R.id.date);
+						SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()); // Формат даты
+						dateTextView.setText(sdf.format(Date));
 
 						// Добавляем карточку в контейнер в меню
 						LinearLayout menuLayout = findViewById(R.id.tasks_layout);

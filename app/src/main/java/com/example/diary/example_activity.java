@@ -10,9 +10,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class example_activity extends Activity {
 
@@ -25,6 +30,7 @@ public class example_activity extends Activity {
 	private TextView name_of_zad_text;
 	private FirebaseFirestore db;
 	private String zadId,zadTitle;
+	private TextView dateTextView;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -36,6 +42,7 @@ public class example_activity extends Activity {
 		stat = (ImageView) findViewById(R.id.stat);
 		name_of_zad_text = (TextView) findViewById(R.id.name_of_zad_text);
 		user_input = (EditText) findViewById(R.id.user_input);
+		dateTextView = findViewById(R.id.date);
 
 
 
@@ -60,6 +67,10 @@ public class example_activity extends Activity {
 							// Устанавливаем заголовок и контент записи в соответствующие элементы интерфейса
 							name_of_zad_text.setText(zadTitle);
 							user_input.setText(zadContent);
+							Timestamp timestamp = (Timestamp) document.get("Date");
+							Date date = timestamp.toDate();
+							SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()); // Формат даты
+							dateTextView.setText(sdf.format(date));
 						}
 					}
 				});

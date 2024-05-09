@@ -159,6 +159,9 @@ public class note_activity extends Activity {
 			note.put("userId", userId); // Добавляем идентификатор пользователя
 			note.put("quoteId", quoteId); // Добавляем айдишник цитаты
 			note.put("taskId", taskId); // Добавляем айдишник задания
+			note.put("Date", new java.util.Date());
+
+
 
 			// Добавляем заметку в базу данных
 			db.collection("notes")
@@ -196,6 +199,9 @@ public class note_activity extends Activity {
 		task.put("taskId", taskId); // Добавляем айдишник записи из "notes"
 		task.put("userId", userId); // Добавляем идентификатор пользователя
 		task.put("content", "");
+		task.put("Date", new java.util.Date());
+
+
 
 		// Добавляем задачу в коллекцию "tasks"
 		db.collection("tasks")

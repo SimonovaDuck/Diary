@@ -12,14 +12,18 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 
 public class menu_activity extends Activity {
@@ -56,8 +60,6 @@ public class menu_activity extends Activity {
 		if (currentUser != null) {
 			String currentUserId = currentUser.getUid();
 			loadUserNotes(currentUserId); // Загрузка заметок текущего пользователя
-		} else {
-			// Пользователь не аутентифицирован, выполните соответствующие действия
 		}
 	}
 	private void loadUserNotes(String userId) {
@@ -72,7 +74,11 @@ public class menu_activity extends Activity {
 							for (QueryDocumentSnapshot document : task.getResult()) {
 								String noteTitle = document.getString("title");
 								String noteId = document.getId(); // Получаем идентификатор записи
-								addNewNoteBlock(noteTitle, noteId); // Добавление каждой записи на экран с указанием идентификатора
+								// Получаем дату создания заметки
+								Timestamp timestamp = (Timestamp) document.get("Date");
+								Date date = timestamp.toDate();
+								// Добавление каждой записи на экран с указанием идентификатора и даты создания
+								addNewNoteBlock(noteTitle, noteId, date);
 							}
 						}
 					}
@@ -135,12 +141,13 @@ public class menu_activity extends Activity {
 		if (requestCode == REQUEST_CODE_NEW_NOTE && resultCode == RESULT_OK) {
 			String noteTitle = data.getStringExtra("note_title");
 			String noteId = data.getStringExtra("note_id"); // Получаем идентификатор записи
-			addNewNoteBlock(noteTitle, noteId); // Добавляем новую запись в список
+			Date noteDate = (Date) data.getSerializableExtra("note_date"); // Получаем дату создания заметки
+			addNewNoteBlock(noteTitle, noteId, noteDate); // Добавляем новую запись в список
 		}
 	}
 
 
-	private void addNewNoteBlock(String noteTitle, String noteId) {
+	private void addNewNoteBlock(String noteTitle, String noteId, Date Date) {
 		// Инфлейтим макет note_card.xml
 		LayoutInflater inflater = LayoutInflater.from(this);
 		View noteCard = inflater.inflate(R.layout.note_card, null);
@@ -152,6 +159,11 @@ public class menu_activity extends Activity {
 		// Найдем TextView для noteId и установим значение
 		TextView idTextView = noteCard.findViewById(R.id.note_id);
 		idTextView.setText(noteId);
+
+		// Найдем TextView для даты создания и установим значение
+		TextView dateTextView = noteCard.findViewById(R.id.date);
+		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()); // Формат даты
+		dateTextView.setText(sdf.format(Date));
 
 		// Добавляем карточку в контейнер в меню
 		LinearLayout menuLayout = findViewById(R.id.menu_layout);
