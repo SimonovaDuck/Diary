@@ -3,151 +3,158 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	xmlns:app="http://schemas.android.com/apk/res-auto">
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:background="@color/mind">
 
 
-<ScrollView android:id="@+id/wont_ex"
+	<ScrollView android:id="@+id/wont_ex"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent" >
+		android:layout_height="0dp"
+		android:layout_below="@id/name_of_wont"
+		android:layout_above="@id/content_container"
+		app:layout_constraintTop_toBottomOf="@id/name_of_wont"
+		app:layout_constraintBottom_toTopOf="@id/content_container">
 
-		<RelativeLayout android:id="@+id/content_container" 
+		<EditText android:id="@+id/trecker"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content" >
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:layout_marginTop="16dp"
+			android:layout_marginEnd="16dp"
+			android:fontFamily="@font/kav"
+			android:gravity="top|start"
+			android:hint="Enter your thoughts"
+			android:inputType="textMultiLine"
+			/>
 
 
-			<View
-				android:id="@+id/_bg__wont_ex"
-				android:layout_width="match_parent"
-				android:layout_height="800dp"
-				android:layout_marginStart="0dp"
-				android:layout_marginTop="0dp"
-				android:background="@color/mind" />
-
-			<View   android:id="@+id/rectangle_16"
-				android:background="@color/bled_purp"
-				 android:layout_marginStart="0dp"
-				android:layout_marginTop="319dp"
-				android:layout_width="match_parent"
-				android:layout_height="25dp" />
+	</ScrollView>
 
 
+	<RelativeLayout android:id="@+id/content_container"
+		android:layout_width="match_parent"
+		android:layout_height="190dp"
+		app:layout_constraintBottom_toTopOf="@id/foot"
+		android:layout_marginBottom="3dp"
+		android:layout_above="@id/foot"
+		>
 
-			<EditText android:id="@+id/trecker"
-				android:textStyle="italic"
-				android:textSize="15sp"
-				android:textColor="@color/texts"
-				android:layout_marginLeft="16dp"
-				android:layout_marginTop="252dp"
-				android:layout_width="259.5dp"
-				android:layout_height="61.5dp"
-				android:hint="Enter your wont"
-				 />
+		<View   android:id="@+id/rectangle_16"
+			android:background="@color/bled_purp"
+			android:layout_width="match_parent"
+			android:layout_height="25dp" />
 
-			<TextView android:id="@+id/how_are_you"
-				android:textStyle="italic"
-				android:textSize="15sp"
-				android:textColor="@color/texts"
-				android:layout_marginLeft="138dp"
-				android:layout_marginTop="321dp"
-				android:layout_width="97.5dp"
-				android:layout_height="26.5dp"
-				android:text="Как успехи?"
-				 />
-
-
-			<RelativeLayout android:id="@+id/ei_check"
-				android:layout_marginTop="350dp"
-				android:layout_marginStart="24dp"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				>
-
-				<ImageView android:id="@+id/vector_ek5"
-					android:src="@drawable/yes"
-					 android:layout_marginStart="5.6dp"
-					android:layout_marginTop="5.6dp"
-					android:layout_width="35dp"
-					android:layout_height="35dp" />
+		<TextView android:id="@+id/how_are_you"
+			android:textStyle="italic"
+			android:textSize="15sp"
+			android:textColor="@color/texts"
+			android:layout_marginLeft="138dp"
+			android:layout_width="97.5dp"
+			android:layout_height="26.5dp"
+			android:text="Как успехи?"
+			/>
 
 
-
-			</RelativeLayout>
-
-
-			<RelativeLayout android:id="@+id/ei_check_ek2"
-				android:layout_marginTop="395dp"
-				android:layout_marginStart="23dp"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				>
-
-
-
-				<ImageView android:id="@+id/vector_ek7"
-					android:src="@drawable/no"
-					 android:layout_marginStart="5.6dp"
-					android:layout_marginTop="5.6dp"
-					android:layout_width="35dp"
-					android:layout_height="35dp" />
-
-			</RelativeLayout>
-
-
-			<RelativeLayout android:id="@+id/ei_check_ek4"
-				android:layout_marginTop="440dp"
-				android:layout_marginStart="23dp"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				>
-
-
-
-				<ImageView android:id="@+id/vector_ek8"
-					android:src="@drawable/no"
-					 android:layout_marginStart="5.6dp"
-					android:layout_marginTop="5.6dp"
-					android:layout_width="35dp"
-					android:layout_height="35dp" />
-
-			</RelativeLayout>
+		<RelativeLayout android:id="@+id/ei_check"
+			android:layout_marginTop="40dp"
+			android:layout_marginStart="24dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			>
+			<ImageView android:id="@+id/vector_ek5"
+				android:src="@drawable/no"
+				android:layout_marginStart="5.6dp"
+				android:layout_marginTop="5.6dp"
+				android:layout_width="35dp"
+				android:layout_height="35dp"
+				android:onClick="onVectorClick"/>
 
 			<TextView android:id="@+id/in_proc"
 				android:textStyle="italic"
 				android:textSize="15sp"
+				android:layout_marginStart="7dp"
+				android:layout_marginTop="7dp"
 				android:textColor="@color/texts"
-				android:layout_marginLeft="70dp"
-				android:layout_marginTop="358dp"
-				android:layout_width="98.5dp"
-				android:layout_height="23.5dp"
+				android:layout_marginLeft="10dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
 				android:text="В процессе"
-				 />
+				android:layout_toEndOf="@id/vector_ek5"
+				android:layout_centerVertical="true"
+				android:layout_alignTop="@id/vector_ek5"
+				/>
+
+
+
+		</RelativeLayout>
+
+
+		<RelativeLayout android:id="@+id/ei_check_ek2"
+			android:layout_marginTop="80dp"
+			android:layout_marginStart="23dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			>
+
+			<ImageView android:id="@+id/vector_ek7"
+				android:src="@drawable/no"
+				android:layout_marginStart="5.6dp"
+				android:layout_marginTop="5.6dp"
+				android:layout_width="35dp"
+				android:layout_height="35dp"
+				android:onClick="onVectorClick"/>
 
 			<TextView android:id="@+id/done"
 				android:textStyle="italic"
 				android:textSize="15sp"
 				android:textColor="@color/texts"
-				android:layout_marginLeft="75dp"
-				android:layout_marginTop="402dp"
-				android:layout_width="98.5dp"
-				android:layout_height="23.5dp"
+				android:layout_marginLeft="10dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="7dp"
+				android:layout_marginTop="7dp"
 				android:text="Выполнено"
-				 />
-
-			<TextView android:id="@+id/disable"
-				android:textStyle="italic"
-				android:textSize="15sp"
-				android:textColor="@color/texts"
-				android:layout_marginLeft="70dp"
-				android:layout_marginTop="447dp"
-				android:layout_width="98.5dp"
-				android:layout_height="23.5dp"
-				android:text="Отменено"
-				 />
+				android:layout_toEndOf="@id/vector_ek7"
+				android:layout_centerVertical="true"
+				android:layout_alignTop="@id/vector_ek7"
+				/>
 
 		</RelativeLayout>
 
-	</ScrollView>
 
+		<RelativeLayout
+			android:id="@+id/ei_check_ek4"
+			android:layout_marginTop="120dp"
+			android:layout_marginStart="23dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+
+			<ImageView
+				android:id="@+id/vector_ek8"
+				android:src="@drawable/no"
+				android:layout_marginStart="5.6dp"
+				android:layout_marginTop="5.6dp"
+				android:layout_width="35dp"
+				android:layout_height="35dp"
+				android:onClick="onVectorClick"/>
+
+			<TextView
+				android:id="@+id/disable"
+				android:textStyle="italic"
+				android:textSize="15sp"
+				android:textColor="@color/texts"
+				android:layout_marginLeft="10dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="7dp"
+				android:layout_marginTop="7dp"
+				android:text="Отменено"
+				android:layout_toEndOf="@id/vector_ek8"
+				android:layout_centerVertical="true"
+				android:layout_alignTop="@id/vector_ek8" />
+		</RelativeLayout>
+
+	</RelativeLayout>
 
 	<!-- header-->
 	<RelativeLayout
@@ -201,7 +208,7 @@
 			android:src="@drawable/delete"
 			android:clickable="true"
 			android:focusable="true"
-			android:onClick="onClickStatistic"
+			android:onClick="onClickDelete"
 			/>
 
 	</RelativeLayout>
@@ -328,30 +335,24 @@
 			android:layout_marginTop="0dp"
 			android:background="@color/bled_purp" />
 
-		<TextView android:id="@+id/_04_03_24"
-			android:textStyle="italic"
-			android:textSize="13sp"
-			android:textColor="@color/text_light"
-			android:layout_marginLeft="290dp"
-			android:layout_marginTop="18dp"
-			android:layout_width="63.3dp"
-			android:layout_height="26.66dp"
-			android:text="@string/_04_03_24_string"
-			/>
+
 
 		<EditText android:id="@+id/text_wont"
 			android:textStyle="italic"
 			android:layout_gravity="center_horizontal|center"
 			android:gravity="center"
-			android:textSize="15sp"
+			android:textSize="17sp"
 			android:textColor="@color/texts"
-			android:layout_marginLeft="8dp"
+			android:layout_marginLeft="15dp"
+			android:layout_marginRight="15dp"
 			android:layout_marginTop="15dp"
-			android:layout_width="263dp"
+			android:layout_width="match_parent"
 			android:layout_height="47.5dp"
 			android:hint="Title"
 			android:fontFamily="@font/kav"
+			android:maxLength="30"
 			/>
+
 
 	</RelativeLayout>
 

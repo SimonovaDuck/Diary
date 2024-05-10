@@ -1,0 +1,366 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/mind">
+
+
+    <ScrollView android:id="@+id/wont_ex"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/name_of_wont"
+        android:layout_above="@id/content_container"
+        app:layout_constraintTop_toBottomOf="@id/name_of_wont"
+        app:layout_constraintBottom_toTopOf="@id/content_container">
+
+            <EditText android:id="@+id/trecker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/kav"
+                android:gravity="top|start"
+                android:hint="Enter your thoughts"
+                android:inputType="textMultiLine"
+                />
+
+
+    </ScrollView>
+
+
+    <RelativeLayout android:id="@+id/content_container"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        app:layout_constraintBottom_toTopOf="@id/foot"
+        android:layout_marginBottom="3dp"
+        android:layout_above="@id/foot"
+        >
+
+        <View   android:id="@+id/rectangle_16"
+            android:background="@color/bled_purp"
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+
+        <TextView android:id="@+id/how_are_you"
+            android:textStyle="italic"
+            android:textSize="15sp"
+            android:textColor="@color/texts"
+            android:layout_marginLeft="138dp"
+            android:layout_width="97.5dp"
+            android:layout_height="26.5dp"
+            android:text="Как успехи?"
+            />
+
+
+        <RelativeLayout android:id="@+id/ei_check"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <ImageView android:id="@+id/vector_ek5"
+                android:src="@drawable/no"
+                android:layout_marginStart="5.6dp"
+                android:layout_marginTop="5.6dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:onClick="onVectorClick"/>
+
+            <TextView android:id="@+id/in_proc"
+                android:textStyle="italic"
+                android:textSize="15sp"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="7dp"
+                android:textColor="@color/texts"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="В процессе"
+                android:layout_toEndOf="@id/vector_ek5"
+                android:layout_centerVertical="true"
+                android:layout_alignTop="@id/vector_ek5"
+                />
+
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout android:id="@+id/ei_check_ek2"
+            android:layout_marginTop="80dp"
+            android:layout_marginStart="23dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+            <ImageView android:id="@+id/vector_ek7"
+                android:src="@drawable/no"
+                android:layout_marginStart="5.6dp"
+                android:layout_marginTop="5.6dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:onClick="onVectorClick"/>
+
+            <TextView android:id="@+id/done"
+                android:textStyle="italic"
+                android:textSize="15sp"
+                android:textColor="@color/texts"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="7dp"
+                android:text="Выполнено"
+                android:layout_toEndOf="@id/vector_ek7"
+                android:layout_centerVertical="true"
+                android:layout_alignTop="@id/vector_ek7"
+                />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/ei_check_ek4"
+            android:layout_marginTop="120dp"
+            android:layout_marginStart="23dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/vector_ek8"
+                android:src="@drawable/no"
+                android:layout_marginStart="5.6dp"
+                android:layout_marginTop="5.6dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:onClick="onVectorClick"/>
+
+            <TextView
+                android:id="@+id/disable"
+                android:textStyle="italic"
+                android:textSize="15sp"
+                android:textColor="@color/texts"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="7dp"
+                android:text="Отменено"
+                android:layout_toEndOf="@id/vector_ek8"
+                android:layout_centerVertical="true"
+                android:layout_alignTop="@id/vector_ek8" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <!-- header-->
+    <RelativeLayout
+        android:id="@+id/head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginStart="0dp">
+
+        <View
+            android:id="@+id/rectangle_1"
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/dark_pink" />
+
+        <TextView
+            android:id="@+id/diary"
+            android:layout_width="89dp"
+            android:layout_height="53dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/kav"
+            android:gravity="center"
+            android:text="@string/diary_string"
+            android:textColor="@color/texts"
+            android:textSize="30sp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:id="@+id/create_new_text"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="45dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/save"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onClickNewWont"
+            />
+
+        <ImageView
+            android:id="@+id/del"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="45dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/delete"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onClickDelete"
+            />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/underhead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_marginTop="78dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/dark_pink"
+        android:elevation="8dp">
+
+        <RelativeLayout
+            android:id="@+id/first_item"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+
+            <View
+                android:id="@+id/rectangle_5"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@color/bled_purp"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClickNotes"
+                />
+
+            <TextView
+                android:id="@+id/notes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Записи"
+                android:textColor="@color/texts"
+                android:textSize="14sp"
+                android:textStyle="italic" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/second_item"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+
+            <View
+                android:id="@+id/rectangle_6"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@color/bled_purp"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClickZads"
+                />
+
+            <TextView
+                android:id="@+id/ex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Задания"
+                android:textColor="@color/texts"
+                android:textSize="14sp"
+                android:textStyle="italic" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/third_item"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <View
+                android:id="@+id/rectangle_7"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@color/dark_pink"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClickWonts"
+                />
+
+            <TextView
+                android:id="@+id/wonts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Привычки"
+                android:textColor="@color/texts"
+                android:textSize="14sp"
+                android:textStyle="italic" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!--name of note-->
+
+    <RelativeLayout  android:id="@+id/name_of_wont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="0dp"
+        app:layout_constraintTop_toBottomOf="@id/underhead"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+        <View
+            android:id="@+id/rectangle_9"
+            android:layout_width="match_parent"
+            android:layout_height="74.55dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/bled_purp" />
+
+
+
+        <EditText android:id="@+id/text_wont"
+            android:textStyle="italic"
+            android:layout_gravity="center_horizontal|center"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:textColor="@color/texts"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="47.5dp"
+            android:hint="Title"
+            android:fontFamily="@font/kav"
+            android:maxLength="30"
+            />
+
+    </RelativeLayout>
+
+
+    <!--footer -->
+    <View   android:id="@+id/foot"
+        android:background="@color/dark_pink"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

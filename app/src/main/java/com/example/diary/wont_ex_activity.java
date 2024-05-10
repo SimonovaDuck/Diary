@@ -17,65 +17,126 @@
 
 package com.example.diary;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
+	import android.app.Activity;
+	import android.content.Intent;
+	import android.os.Bundle;
+	import android.view.View;
+	import android.widget.EditText;
+	import android.widget.ImageView;
+	import android.widget.TextView;
+	import android.widget.Toast;
 
+	import com.google.firebase.firestore.DocumentReference;
+	import com.google.firebase.firestore.DocumentSnapshot;
+	import com.google.firebase.firestore.FirebaseFirestore;
 
-import android.view.View;
-import android.widget.TextView;
-import android.widget.ImageView;
+	import java.util.HashMap;
+	import java.util.Map;
 
-public class wont_ex_activity extends Activity {
+	public class wont_ex_activity extends Activity {
 
+		private EditText text_wont, trecker;
+		private FirebaseFirestore db;
+		private String wontId,wontTitle;
+		private String noteId;
+		private TextView dateTextView;
+		private boolean status1 = false;
+		private boolean status2 = false;
+		private boolean status3 = false;
 
-	private View foot;
-
-	private View rectangle_9;
-	private TextView _04_03_24;
-
-	private View rectangle_5;
-
-
-	private View rectangle_6;
-
-	private View rectangle_7;
-
-	private View rectangle_1;
-	private TextView diary;
-
-	private View rectangle_16;
-
-	private ImageView vector_ek5;
-
-	private ImageView vector_ek7;
-
-	private ImageView vector_ek8;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.wont_ex);
+		text_wont = findViewById(R.id.text_wont);
+		trecker = findViewById(R.id.trecker);
+		ImageView imageView5 = findViewById(R.id.vector_ek5);
+		ImageView imageView7 = findViewById(R.id.vector_ek7);
+		ImageView imageView8 = findViewById(R.id.vector_ek8);
 
-		
-		foot = (View) findViewById(R.id.foot);
-		rectangle_9 = (View) findViewById(R.id.rectangle_9);
-		_04_03_24 = (TextView) findViewById(R.id._04_03_24);
-		rectangle_5 = (View) findViewById(R.id.rectangle_5);
-		rectangle_6 = (View) findViewById(R.id.rectangle_6);
-		rectangle_7 = (View) findViewById(R.id.rectangle_7);
-		rectangle_1 = (View) findViewById(R.id.rectangle_1);
-		diary = (TextView) findViewById(R.id.diary);
-		rectangle_16 = (View) findViewById(R.id.rectangle_16);
-		vector_ek5 = (ImageView) findViewById(R.id.vector_ek5);
-		vector_ek7 = (ImageView) findViewById(R.id.vector_ek7);
-		vector_ek8 = (ImageView) findViewById(R.id.vector_ek8);
 
-		
-		//custom code goes here
+		// Получаем айдишник записи из Intent
+		Intent intent = getIntent();
+		if (intent != null) {
+			wontId = intent.getStringExtra("wont_id");
+			wontTitle = intent.getStringExtra("wont_title");
+			if (wontId != null && wontTitle != null) {
+				// Инициализируем Firebase
+				db = FirebaseFirestore.getInstance();
+				// Получаем документ записи из базы данных
+				DocumentReference noteRef = db.collection("wonts").document(wontId);
+				noteRef.get().addOnCompleteListener(task -> {
+					if (task.isSuccessful()) {
+						DocumentSnapshot document = task.getResult();
+						if (document.exists()) {
+							// Получаем контент записи из документа
+							String wontContent = document.getString("content");
+							// Устанавливаем заголовок и контент записи в соответствующие элементы интерфейса
+							text_wont.setText(wontTitle);
+							trecker.setText(wontContent);
+							int status = document.getLong("Status").intValue();
+							// Устанавливаем соответствующее изображение в зависимости от статуса
+							switch (status) {
+								case 1:
+									imageView5.setImageResource(R.drawable.yes);
+									imageView7.setImageResource(R.drawable.no);
+									imageView8.setImageResource(R.drawable.no);
+									break;
+								case 2:
+									imageView5.setImageResource(R.drawable.no);
+									imageView7.setImageResource(R.drawable.yes);
+									imageView8.setImageResource(R.drawable.no);
+									break;
+								case 3:
+									imageView5.setImageResource(R.drawable.no);
+									imageView7.setImageResource(R.drawable.no);
+									imageView8.setImageResource(R.drawable.yes);
+									break;
+								default:
+									imageView5.setImageResource(R.drawable.no);
+									imageView7.setImageResource(R.drawable.no);
+									imageView8.setImageResource(R.drawable.no);
+									break;
+							}
+						}
+					}
+				});
+			}
+		}
 	
 	}
+		public void onVectorClick(View view) {
+			ImageView imageView5 = findViewById(R.id.vector_ek5);
+			ImageView imageView7 = findViewById(R.id.vector_ek7);
+			ImageView imageView8 = findViewById(R.id.vector_ek8);
+
+			// Сбросить изображения у всех изображений
+			imageView5.setImageResource(R.drawable.no);
+			imageView7.setImageResource(R.drawable.no);
+			imageView8.setImageResource(R.drawable.no);
+
+			// Установить изображение на текущем нажатом изображении
+			ImageView clickedImageView = (ImageView) view;
+			clickedImageView.setImageResource(R.drawable.yes);
+			// Определить, какое изображение было нажато
+			if (view.getId() == R.id.vector_ek5) {
+				status1=true;
+				status2=false;
+				status3=false;
+
+			} else if (view.getId() == R.id.vector_ek7) {
+				status1=false;
+				status2=true;
+				status3=false;
+			} else if (view.getId() == R.id.vector_ek8) {
+				status1=false;
+				status2=false;
+				status3=true;
+			}
+
+		}
 
 	public void onClickNotes(View view){
 		Intent intent = new Intent (this, menu_activity.class);
@@ -90,15 +151,85 @@ public class wont_ex_activity extends Activity {
 		startActivity(intent);
 	}
 //save доделать
-//	public void onClickNewNote(View view){
-//		Intent intent = new Intent (this,note_activity.class);
-//		startActivity(intent);
-//	}
+	public void onClickNewNote(View view){
+		// Получаем новые значения текста и контента из элементов интерфейса
+		String newContent = trecker.getText().toString();
+		String newTitle = text_wont.getText().toString();
+
+		// Обновляем документ в базе данных
+		updateWontInDatabase(newTitle, newContent);
+	}
+		private void updateWontInDatabase(String newTitle, String newContent) {
+			// Проверяем, что у нас есть идентификатор записи
+			if (wontId != null) {
+				// Получаем ссылку на документ записи в коллекции "notes"
+				DocumentReference noteRef = db.collection("wonts").document(wontId);
+
+				// Обновляем поля "title" и "content" в документе
+				noteRef.update("title", newTitle, "content", newContent)
+						.addOnSuccessListener(aVoid -> {
+							// Успешное обновление данных
+							Toast.makeText(this, "Текст успешно обновлен", Toast.LENGTH_SHORT).show();
+						})
+						.addOnFailureListener(e -> {
+							// Обработка ошибок при обновлении данных
+							Toast.makeText(this, "Ошибка при обновлении текста", Toast.LENGTH_SHORT).show();
+						});
+				// Создаем объект для обновления статуса
+				Map<String, Object> statusUpdate = new HashMap<>();
+				if (status1) {
+					statusUpdate.put("Status", 1);
+				} else if (status2) {
+					statusUpdate.put("Status", 2);
+				} else if (status3) {
+					statusUpdate.put("Status", 3);
+				} else {
+					statusUpdate.put("Status", 0);
+				}
+				// Обновляем поле "Status" в базе данных
+				noteRef.update(statusUpdate)
+						.addOnSuccessListener(aVoid -> {
+							// Успешное обновление статуса
+							Toast.makeText(this, "Статус успешно обновлен", Toast.LENGTH_SHORT).show();
+						})
+						.addOnFailureListener(e -> {
+							// Обработка ошибок при обновлении статуса
+							Toast.makeText(this, "Ошибка при обновлении статуса", Toast.LENGTH_SHORT).show();
+						});
+			} else {
+				// Если идентификатор записи не определен, выведите сообщение об ошибке
+				Toast.makeText(this, "Идентификатор записи не найден", Toast.LENGTH_SHORT).show();
+			}
+			Intent intent = new Intent (this, wonts_activity.class);
+			startActivity(intent);
+		}
 // delete доделать
-//	public void onClickStatistic(View view){
-//		Intent intent = new Intent (this,emotions_activity.class);
-//		startActivity(intent);
-//	}
+public void onClickDelete(View view){
+	// Проверяем, что у нас есть идентификатор записи
+	if (wontId != null) {
+		// Получаем ссылку на документ записи в коллекции "notes"
+		DocumentReference noteRef = db.collection("wonts").document(wontId);
+
+		// Удаляем документ из базы данных
+		noteRef.delete()
+				.addOnSuccessListener(aVoid -> {
+					// Успешное удаление записи
+					Toast.makeText(this, "Запись успешно удалена", Toast.LENGTH_SHORT).show();
+
+					// После успешного удаления, переходим на другую активность
+					Intent intent = new Intent(this, wonts_activity.class);
+					startActivity(intent);
+				})
+				.addOnFailureListener(e -> {
+					// Обработка ошибок при удалении
+					Toast.makeText(this, "Ошибка при удалении записи", Toast.LENGTH_SHORT).show();
+				});
+	} else {
+		// Если идентификатор записи не определен, выведите сообщение об ошибке
+		Toast.makeText(this, "Идентификатор записи не найден", Toast.LENGTH_SHORT).show();
+	}
+
+}
 }
 	
 	
