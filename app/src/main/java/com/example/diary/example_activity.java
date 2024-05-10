@@ -124,7 +124,7 @@ public void onClickNewNote(View view){
 		Intent intent = new Intent (this, zad_activity.class);
 		startActivity(intent);
 	}
-// delete доделать
+// пролорпапро
 public void onClickDelete(View view){
 	// Проверяем, что у нас есть идентификатор записи
 	if (zadId != null) {
