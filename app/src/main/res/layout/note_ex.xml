@@ -239,6 +239,8 @@
 
     </RelativeLayout>
 
+
+
     <!--footer-->
     <RelativeLayout
         android:id="@+id/foot"
@@ -253,47 +255,68 @@
             android:orientation="horizontal"
             android:gravity="center">
 
-            <ImageView
+            <ImageView android:id="@+id/happy"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"
-                android:src="@drawable/happy" />
+                android:src="@drawable/happy"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClickEmotion"/>
 
-            <ImageView
+            <ImageView android:id="@+id/nice"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"
-                android:src="@drawable/nice" />
+                android:src="@drawable/nice"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClickEmotion"/>
 
-            <ImageView
+            <ImageView android:id="@+id/love"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"
-                android:src="@drawable/love" />
+                android:src="@drawable/love"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClickEmotion"/>
 
-            <ImageView
+            <ImageView android:id="@+id/hmm"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"
-                android:src="@drawable/hmm" />
+                android:src="@drawable/hmm"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClickEmotion"/>
 
-            <ImageView
+            <ImageView android:id="@+id/angry"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"
-                android:src="@drawable/angry" />
+                android:src="@drawable/angry"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClickEmotion"/>
 
-            <ImageView
+            <ImageView android:id="@+id/bue"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"
-                android:src="@drawable/bue" />
+                android:src="@drawable/bue"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClickEmotion"/>
 
-            <ImageView
+            <ImageView android:id="@+id/cry"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"
-                android:src="@drawable/cry" />
+                android:src="@drawable/cry"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onClickEmotion"/>
 
         </LinearLayout>
     </RelativeLayout>

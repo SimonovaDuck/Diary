@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 
@@ -222,8 +223,78 @@ public class note_activity extends Activity {
 				});
 	}
 
+	public void onClickEmotion(View view) {
+		ImageView imageView = (ImageView) view;
+		int viewId = view.getId();
+		boolean isPressed = false; // Флаг для отслеживания состояния изображения
 
-// delete доделать
+		// Проверяем текущее состояние изображения
+		if (imageView.getTag() != null) {
+			isPressed = (boolean) imageView.getTag();
+		}
+
+		// Проверяем ID нажатого изображения и изменяем изображение в соответствии с флагом isPressed
+		if (viewId == R.id.happy) {
+			if (!isPressed) {
+				imageView.setImageResource(R.drawable.roundhappy);
+				imageView.setTag(true); // Устанавливаем флаг нажатого состояния
+			} else {
+				imageView.setImageResource(R.drawable.happy);
+				imageView.setTag(false); // Сбрасываем флаг нажатого состояния
+			}
+		} else if (viewId == R.id.nice) {
+			if (!isPressed) {
+				imageView.setImageResource(R.drawable.roundnice);
+				imageView.setTag(true); // Устанавливаем флаг нажатого состояния
+			} else {
+				imageView.setImageResource(R.drawable.nice);
+				imageView.setTag(false); // Сбрасываем флаг нажатого состояния
+			}
+		} else if (viewId == R.id.love) {
+			if (!isPressed) {
+				imageView.setImageResource(R.drawable.roundlove);
+				imageView.setTag(true); // Устанавливаем флаг нажатого состояния
+			} else {
+				imageView.setImageResource(R.drawable.love);
+				imageView.setTag(false); // Сбрасываем флаг нажатого состояния
+			}
+		} else if (viewId == R.id.bue) {
+			if (!isPressed) {
+				imageView.setImageResource(R.drawable.roundbue);
+				imageView.setTag(true); // Устанавливаем флаг нажатого состояния
+			} else {
+				imageView.setImageResource(R.drawable.bue);
+				imageView.setTag(false); // Сбрасываем флаг нажатого состояния
+			}
+		} else if (viewId == R.id.hmm) {
+			if (!isPressed) {
+				imageView.setImageResource(R.drawable.roundhmm);
+				imageView.setTag(true); // Устанавливаем флаг нажатого состояния
+			} else {
+				imageView.setImageResource(R.drawable.hmm);
+				imageView.setTag(false); // Сбрасываем флаг нажатого состояния
+			}
+		} else if (viewId == R.id.angry) {
+			if (!isPressed) {
+				imageView.setImageResource(R.drawable.roundangry);
+				imageView.setTag(true); // Устанавливаем флаг нажатого состояния
+			} else {
+				imageView.setImageResource(R.drawable.angry);
+				imageView.setTag(false); // Сбрасываем флаг нажатого состояния
+			}
+		} else if (viewId == R.id.cry) {
+			if (!isPressed) {
+				imageView.setImageResource(R.drawable.roundcry);
+				imageView.setTag(true); // Устанавливаем флаг нажатого состояния
+			} else {
+				imageView.setImageResource(R.drawable.cry);
+				imageView.setTag(false); // Сбрасываем флаг нажатого состояния
+			}
+		}
+		// Добавьте аналогичные проверки и изменения для остальных изображений
+	}
+
+	// delete доделать
 	public void onClickDelete(View view){
 		Intent intent = new Intent (this, menu_activity.class);
 		startActivity(intent);
