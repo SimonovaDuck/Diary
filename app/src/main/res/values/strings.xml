@@ -17,4 +17,13 @@
 	<string name="_01_03_24_string">01.03.24</string>
 	<string name="_04_03_24_string">04.03.24</string>
 	<string name="_______________________string">  </string>
+
+
+	<string-array name="spinner_items">
+		<item>Каждые 2 часа</item>
+		<item>Каждые 4 часа</item>
+		<item>Каждый вечер в 20:00</item>
+	</string-array>
+
+
 </resources>

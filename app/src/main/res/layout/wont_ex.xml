@@ -14,19 +14,52 @@
 		android:layout_above="@id/content_container"
 		app:layout_constraintTop_toBottomOf="@id/name_of_wont"
 		app:layout_constraintBottom_toTopOf="@id/content_container">
-
-		<EditText android:id="@+id/trecker"
+		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginStart="16dp"
-			android:layout_marginTop="16dp"
-			android:layout_marginEnd="16dp"
-			android:fontFamily="@font/kav"
-			android:gravity="top|start"
-			android:hint="Enter your thoughts"
-			android:inputType="textMultiLine"
-			/>
+			android:orientation="vertical">
 
+			<EditText android:id="@+id/trecker"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="16dp"
+				android:layout_marginTop="16dp"
+				android:layout_marginEnd="16dp"
+				android:fontFamily="@font/kav"
+				android:gravity="top|start"
+				android:hint="Enter your thoughts"
+				android:inputType="textMultiLine"
+				/>
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="16dp"
+				android:layout_marginTop="16dp"
+				android:layout_marginEnd="16dp"
+				app:layout_constraintTop_toBottomOf="@id/content_container">
+
+				<TextView
+					android:id="@+id/how_fast"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentStart="true"
+					android:layout_centerVertical="true"
+					android:text="Частота напоминания:"
+					android:textColor="@color/texts"
+					android:textSize="15sp"
+					android:textStyle="italic" />
+
+				<Spinner
+					android:id="@+id/my_spinners"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_toEndOf="@id/how_fast"
+					android:layout_marginStart="16dp"
+					android:spinnerMode="dropdown" />
+			</RelativeLayout>
+
+		</LinearLayout>
 
 	</ScrollView>
 

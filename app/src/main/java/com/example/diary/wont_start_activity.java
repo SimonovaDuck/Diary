@@ -1,19 +1,4 @@
 
-	 
-	/*
-     *	This content is generated from the API File Info.
-     *	(Alt+Shift+Ctrl+I).
-     *
-     *	@desc
-     *	@file 		wont_ex
-     *	@date 		Monday 01st of April 2024 01:01:20 PM
-     *	@title 		Page 1
-     *	@author
-     *	@keywords
-     *	@generator 	Export Kit v1.3.figma
-     *
-     */
-
 
     package com.example.diary;
 
@@ -22,8 +7,10 @@
     import android.os.Bundle;
     import android.text.TextUtils;
     import android.view.View;
+    import android.widget.ArrayAdapter;
     import android.widget.EditText;
     import android.widget.ImageView;
+    import android.widget.Spinner;
     import android.widget.Toast;
 
     import androidx.annotation.NonNull;
@@ -43,6 +30,7 @@
     public class wont_start_activity extends Activity {
         private FirebaseFirestore db;
         private EditText text_wont, trecker;
+        private Spinner mySpinner;
         // Определение статусов
         private boolean status1 = false;
         private boolean status2 = false;
@@ -64,6 +52,12 @@
             ImageView imageView5 = findViewById(R.id.vector_ek5);
             ImageView imageView7 = findViewById(R.id.vector_ek7);
             ImageView imageView8 = findViewById(R.id.vector_ek8);
+            mySpinner = findViewById(R.id.my_spinner);
+
+            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                    R.array.spinner_items, android.R.layout.simple_spinner_item);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            mySpinner.setAdapter(adapter);
 
         }
 
@@ -109,6 +103,8 @@
             trecker = findViewById(R.id.trecker);
             String title = text_wont.getText().toString();
             String content = trecker.getText().toString();
+            // Получаем выбранный элемент из Spinner
+            String selectedSpinnerItem = mySpinner.getSelectedItem().toString();
 
             // Проверяем, что поля не пустые
             if (TextUtils.isEmpty(title)) {
@@ -132,6 +128,7 @@
                 wont.put("content", content);
                 wont.put("userId", userId); // Добавляем идентификатор пользователя
                 wont.put("Date", new java.util.Date());
+                wont.put("SpinnerItem", selectedSpinnerItem); // Добавляем выбранный элемент из Spinner
                 if(status1)
                 {
                     wont.put("Status",1);

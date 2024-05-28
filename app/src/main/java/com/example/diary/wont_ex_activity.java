@@ -21,8 +21,10 @@ package com.example.diary;
 	import android.content.Intent;
 	import android.os.Bundle;
 	import android.view.View;
+	import android.widget.ArrayAdapter;
 	import android.widget.EditText;
 	import android.widget.ImageView;
+	import android.widget.Spinner;
 	import android.widget.TextView;
 	import android.widget.Toast;
 
@@ -43,6 +45,7 @@ package com.example.diary;
 		private boolean status1 = false;
 		private boolean status2 = false;
 		private boolean status3 = false;
+		private Spinner mySpinner;
 
 
 	@Override
@@ -55,6 +58,12 @@ package com.example.diary;
 		ImageView imageView5 = findViewById(R.id.vector_ek5);
 		ImageView imageView7 = findViewById(R.id.vector_ek7);
 		ImageView imageView8 = findViewById(R.id.vector_ek8);
+		mySpinner = findViewById(R.id.my_spinners);
+
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+				R.array.spinner_items, android.R.layout.simple_spinner_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		mySpinner.setAdapter(adapter);
 
 
 		// Получаем айдишник записи из Intent
@@ -76,6 +85,12 @@ package com.example.diary;
 							// Устанавливаем заголовок и контент записи в соответствующие элементы интерфейса
 							text_wont.setText(wontTitle);
 							trecker.setText(wontContent);
+
+							// Установка значения спиннера
+							String selectedSpinnerItem = document.getString("SpinnerItem");
+							int spinnerIndex = ((ArrayAdapter<String>) mySpinner.getAdapter()).getPosition(selectedSpinnerItem);
+							mySpinner.setSelection(spinnerIndex);
+
 							int status = document.getLong("Status").intValue();
 							// Устанавливаем соответствующее изображение в зависимости от статуса
 							switch (status) {
@@ -169,7 +184,7 @@ package com.example.diary;
 				noteRef.update("title", newTitle, "content", newContent)
 						.addOnSuccessListener(aVoid -> {
 							// Успешное обновление данных
-							Toast.makeText(this, "Текст успешно обновлен", Toast.LENGTH_SHORT).show();
+							Toast.makeText(this, "Привычка успешно обновлена", Toast.LENGTH_SHORT).show();
 						})
 						.addOnFailureListener(e -> {
 							// Обработка ошибок при обновлении данных
@@ -188,13 +203,19 @@ package com.example.diary;
 				}
 				// Обновляем поле "Status" в базе данных
 				noteRef.update(statusUpdate)
-						.addOnSuccessListener(aVoid -> {
-							// Успешное обновление статуса
-							Toast.makeText(this, "Статус успешно обновлен", Toast.LENGTH_SHORT).show();
-						})
+
 						.addOnFailureListener(e -> {
 							// Обработка ошибок при обновлении статуса
 							Toast.makeText(this, "Ошибка при обновлении статуса", Toast.LENGTH_SHORT).show();
+						});
+
+				// Обновляем значение спиннера в базе данных
+				String selectedSpinnerItem = mySpinner.getSelectedItem().toString();
+				noteRef.update("SpinnerItem", selectedSpinnerItem)
+
+						.addOnFailureListener(e -> {
+							// Обработка ошибок при обновлении значения спиннера
+							Toast.makeText(this, "Ошибка при обновлении значения спиннера", Toast.LENGTH_SHORT).show();
 						});
 			} else {
 				// Если идентификатор записи не определен, выведите сообщение об ошибке
