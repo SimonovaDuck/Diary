@@ -205,15 +205,74 @@
 				android:layout_marginTop="10dp"
 				android:text="число" />
 
-			<View
+			<LinearLayout
 				android:id="@+id/rectangle_em"
-				android:background="@color/bled_purp"
-				android:layout_marginStart="0dp"
 				android:layout_width="match_parent"
 				android:layout_height="96dp"
 				android:layout_below="@id/num_of_day"
 				android:layout_marginTop="10dp"
-				/>
+				android:background="@color/bled_purp"
+				android:orientation="horizontal"
+				android:gravity="center">
+
+				<!-- Пример для настроения "angry" -->
+				<ImageView
+					android:id="@+id/angryImage"
+					android:layout_width="55dp"
+					android:layout_height="55dp"
+					android:src="@drawable/angry"
+					android:visibility="gone" />
+
+				<!-- Пример для настроения "cry" -->
+				<ImageView
+					android:id="@+id/cryImage"
+					android:layout_width="55dp"
+					android:layout_height="55dp"
+					android:src="@drawable/cry"
+					android:visibility="gone" />
+
+				<!-- Пример для настроения "bue" -->
+				<ImageView
+					android:id="@+id/bueImage"
+					android:layout_width="55dp"
+					android:layout_height="55dp"
+					android:src="@drawable/bue"
+					android:visibility="gone" />
+
+				<!-- Пример для настроения "hmm" -->
+				<ImageView
+					android:id="@+id/hmmImage"
+					android:layout_width="55dp"
+					android:layout_height="55dp"
+					android:src="@drawable/hmm"
+					android:visibility="gone" />
+
+				<!-- Пример для настроения "love" -->
+				<ImageView
+					android:id="@+id/loveImage"
+					android:layout_width="55dp"
+					android:layout_height="55dp"
+					android:src="@drawable/love"
+					android:visibility="gone" />
+
+				<!-- Пример для настроения "nice" -->
+				<ImageView
+					android:id="@+id/niceImage"
+					android:layout_width="55dp"
+					android:layout_height="55dp"
+					android:src="@drawable/nice"
+					android:visibility="gone" />
+
+				<!-- Пример для настроения "happy" -->
+				<ImageView
+					android:id="@+id/happyImage"
+					android:layout_width="55dp"
+					android:layout_height="55dp"
+					android:src="@drawable/happy"
+					android:visibility="gone" />
+			</LinearLayout>
+
+
 		</RelativeLayout>
 	</ScrollView>
 

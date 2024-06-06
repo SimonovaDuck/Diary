@@ -25,7 +25,7 @@
 			android:layout_marginEnd="16dp"
 			android:fontFamily="@font/kav"
 			android:gravity="top|start"
-			android:hint="Enter your thoughts"
+			android:hint="Введите свои мысли"
 			android:inputType="textMultiLine" />
 
 	</ScrollView>
@@ -246,59 +246,7 @@
 		android:background="@color/dark_pink"
 		app:layout_constraintBottom_toBottomOf="parent">
 
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:orientation="horizontal"
-			android:gravity="center">
-
-			<ImageView
-				android:layout_width="0dp"
-				android:layout_height="45dp"
-				android:layout_weight="1"
-				android:src="@drawable/happy" />
-
-			<ImageView
-				android:layout_width="0dp"
-				android:layout_height="45dp"
-				android:layout_weight="1"
-				android:src="@drawable/nice" />
-
-			<ImageView
-				android:layout_width="0dp"
-				android:layout_height="45dp"
-				android:layout_weight="1"
-				android:src="@drawable/love" />
-
-			<ImageView
-				android:layout_width="0dp"
-				android:layout_height="45dp"
-				android:layout_weight="1"
-				android:src="@drawable/hmm" />
-
-			<ImageView
-				android:layout_width="0dp"
-				android:layout_height="45dp"
-				android:layout_weight="1"
-				android:src="@drawable/angry" />
-
-			<ImageView
-				android:layout_width="0dp"
-				android:layout_height="45dp"
-				android:layout_weight="1"
-				android:src="@drawable/bue" />
-
-			<ImageView
-				android:layout_width="0dp"
-				android:layout_height="45dp"
-				android:layout_weight="1"
-				android:src="@drawable/cry" />
-
-		</LinearLayout>
 	</RelativeLayout>
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,7 +27,7 @@
 				android:layout_marginEnd="16dp"
 				android:fontFamily="@font/kav"
 				android:gravity="top|start"
-				android:hint="Enter your thoughts"
+				android:hint="Введите свои мысли"
 				android:inputType="textMultiLine"
 				/>
 
@@ -381,7 +381,7 @@
 			android:layout_marginTop="15dp"
 			android:layout_width="match_parent"
 			android:layout_height="47.5dp"
-			android:hint="Title"
+			android:hint="Заголовок"
 			android:fontFamily="@font/kav"
 			android:maxLength="30"
 			/>
