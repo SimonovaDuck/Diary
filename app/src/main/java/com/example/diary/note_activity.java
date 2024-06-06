@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ImageView;
+import java.util.ArrayList;
+
 
 import androidx.annotation.NonNull;
 
@@ -39,7 +41,11 @@ public class note_activity extends Activity {
 
 	private EditText user_input_text;
 
-	private String taskId, quoteId; // Поле для хранения айди задания
+	private String taskId, quoteId, moodsId, tasksId; // Поле для хранения айди задания
+	private ArrayList<String> selectedMoodIds = new ArrayList<>();
+
+	private Map<String, Object> note = new HashMap<>(); // Переменная для хранения заметки
+	private String noteId;
 
 
 
@@ -163,6 +169,9 @@ public class note_activity extends Activity {
 			note.put("Date", new java.util.Date());
 
 
+			// Добавляем новые поля в заметку
+			note.put("tasks_Id", ""); // Пустое значение по умолчанию
+			note.put("moods_Id", ""); // Пустое значение по умолчанию
 
 			// Добавляем заметку в базу данных
 			db.collection("notes")
@@ -170,14 +179,17 @@ public class note_activity extends Activity {
 					.addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
 						@Override
 						public void onSuccess(DocumentReference documentReference) {
-							String noteId = documentReference.getId(); // Получаем айдишник добавленной заметки
 							// Успешно добавлено
 							Toast.makeText(note_activity.this, "Заметка успешно создана", Toast.LENGTH_SHORT).show();
 							// Очищаем поля ввода после добавления записи
 							name_of_text.setText("");
 							user_input_text.setText("");
+							noteId = documentReference.getId(); // Установите значение noteId
 							// Создаем новую запись в коллекции "tasks"
 							createNewTask(taskId, userId);
+							// Сохраняем настроение
+							saveMood(userId);
+
 						}
 					})
 					.addOnFailureListener(new OnFailureListener() {
@@ -210,8 +222,9 @@ public class note_activity extends Activity {
 				.addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
 					@Override
 					public void onSuccess(DocumentReference documentReference) {
-						// Успешно добавлено
-						Toast.makeText(note_activity.this, "Задача успешно создана", Toast.LENGTH_SHORT).show();
+						tasksId = documentReference.getId(); // Присваиваем значение tasksId
+						// Обновляем значение tasksId в заметке
+						updateNoteWithTasksId(tasksId);
 					}
 				})
 				.addOnFailureListener(new OnFailureListener() {
@@ -238,61 +251,124 @@ public class note_activity extends Activity {
 			if (!isPressed) {
 				imageView.setImageResource(R.drawable.roundhappy);
 				imageView.setTag(true); // Устанавливаем флаг нажатого состояния
+				selectedMoodIds.add("happy"); // Добавляем id настроения в список
 			} else {
 				imageView.setImageResource(R.drawable.happy);
 				imageView.setTag(false); // Сбрасываем флаг нажатого состояния
+				selectedMoodIds.remove("happy"); // Удаляем id настроения из списка
 			}
 		} else if (viewId == R.id.nice) {
 			if (!isPressed) {
 				imageView.setImageResource(R.drawable.roundnice);
 				imageView.setTag(true); // Устанавливаем флаг нажатого состояния
+				selectedMoodIds.add("nice"); // Добавляем id настроения в список
 			} else {
 				imageView.setImageResource(R.drawable.nice);
 				imageView.setTag(false); // Сбрасываем флаг нажатого состояния
+				selectedMoodIds.remove("nice"); // Удаляем id настроения из списка
 			}
 		} else if (viewId == R.id.love) {
 			if (!isPressed) {
 				imageView.setImageResource(R.drawable.roundlove);
 				imageView.setTag(true); // Устанавливаем флаг нажатого состояния
+				selectedMoodIds.add("love"); // Добавляем id настроения в список
 			} else {
 				imageView.setImageResource(R.drawable.love);
 				imageView.setTag(false); // Сбрасываем флаг нажатого состояния
+				selectedMoodIds.remove("love"); // Удаляем id настроения из списка
 			}
 		} else if (viewId == R.id.bue) {
 			if (!isPressed) {
 				imageView.setImageResource(R.drawable.roundbue);
 				imageView.setTag(true); // Устанавливаем флаг нажатого состояния
+				selectedMoodIds.add("bue"); // Добавляем id настроения в список
 			} else {
 				imageView.setImageResource(R.drawable.bue);
 				imageView.setTag(false); // Сбрасываем флаг нажатого состояния
+				selectedMoodIds.remove("bue"); // Удаляем id настроения из списка
 			}
 		} else if (viewId == R.id.hmm) {
+
 			if (!isPressed) {
 				imageView.setImageResource(R.drawable.roundhmm);
 				imageView.setTag(true); // Устанавливаем флаг нажатого состояния
+				selectedMoodIds.add("hmm"); // Добавляем id настроения в список
 			} else {
 				imageView.setImageResource(R.drawable.hmm);
 				imageView.setTag(false); // Сбрасываем флаг нажатого состояния
+				selectedMoodIds.remove("hmm"); // Удаляем id настроения из списка
 			}
 		} else if (viewId == R.id.angry) {
 			if (!isPressed) {
 				imageView.setImageResource(R.drawable.roundangry);
 				imageView.setTag(true); // Устанавливаем флаг нажатого состояния
+				selectedMoodIds.add("angry"); // Добавляем id настроения в список
 			} else {
 				imageView.setImageResource(R.drawable.angry);
 				imageView.setTag(false); // Сбрасываем флаг нажатого состояния
+				selectedMoodIds.remove("angry"); // Удаляем id настроения из списка
 			}
 		} else if (viewId == R.id.cry) {
 			if (!isPressed) {
 				imageView.setImageResource(R.drawable.roundcry);
 				imageView.setTag(true); // Устанавливаем флаг нажатого состояния
+				selectedMoodIds.add("cry"); // Добавляем id настроения в список
 			} else {
 				imageView.setImageResource(R.drawable.cry);
 				imageView.setTag(false); // Сбрасываем флаг нажатого состояния
+				selectedMoodIds.remove("cry"); // Удаляем id настроения из списка
 			}
 		}
-		// Добавьте аналогичные проверки и изменения для остальных изображений
 	}
+
+	private void saveMood(String userId) {
+		// Создаем новую запись в коллекции "moods"
+		Map<String, Object> mood = new HashMap<>();
+		mood.put("userId", userId);
+		mood.put("moodId", new ArrayList<>(selectedMoodIds));
+		mood.put("Date", new java.util.Date());
+
+		// Добавляем настроение в коллекцию "moods"
+		db.collection("moods")
+				.add(mood)
+				.addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+					@Override
+					public void onSuccess(DocumentReference documentReference) {
+						moodsId = documentReference.getId(); // Присваиваем значение moodsId
+						// Обновляем значение tasksId в заметке
+						updateNoteWithMoodsId(moodsId);
+					}
+				})
+				.addOnFailureListener(new OnFailureListener() {
+					@Override
+					public void onFailure(@NonNull Exception e) {
+						// Ошибка при добавлении
+						Toast.makeText(note_activity.this, "Ошибка при сохранении настроения: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+					}
+				});
+		selectedMoodIds.clear();
+	}
+	private void updateNoteWithTasksId(String tasksId) {
+		// Обновляем значение tasksId в заметке
+		Map<String, Object> updates = new HashMap<>();
+		updates.put("tasks_Id", tasksId);
+
+		// Обновляем заметку в базе данных с новым значением tasksId
+		db.collection("notes")
+				.document(noteId)
+				.update(updates);
+	}
+	private void updateNoteWithMoodsId(String moodsId) {
+		// Обновляем значение moodsId в заметке
+		Map<String, Object> updates = new HashMap<>();
+		updates.put("moods_Id", moodsId);
+
+		// Обновляем заметку в базе данных с новым значением moodsId
+		db.collection("notes")
+				.document(noteId)
+				.update(updates);
+	}
+
 
 	// delete доделать
 	public void onClickDelete(View view){

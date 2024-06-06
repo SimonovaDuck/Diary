@@ -1,31 +1,17 @@
 
-	 
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc 		
-	 *	@file 		emotions
-	 *	@date 		Monday 01st of April 2024 12:59:19 PM
-	 *	@title 		Page 1
-	 *	@author 	
-	 *	@keywords 	
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
-	
-
 package com.example.diary;
 
-	import android.app.Activity;
-	import android.content.Intent;
-	import android.os.Bundle;
-	import android.view.View;
-	import android.widget.ImageView;
-	import android.widget.TextView;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.CalendarView;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class emotions_activity extends Activity {
-
 
 	private View foot;
 
@@ -53,11 +39,6 @@ public class emotions_activity extends Activity {
 
 		foot = (View) findViewById(R.id.foot);
 
-		rectangle_5 = (View) findViewById(R.id.rectangle_5);
-		rectangle_6 = (View) findViewById(R.id.rectangle_6);
-
-		rectangle_7 = (View) findViewById(R.id.rectangle_7);
-		rectangle_1 = (View) findViewById(R.id.rectangle_1);
 
 		diary = (TextView) findViewById(R.id.diary);
 		num_of_day = (TextView) findViewById(R.id.num_of_day);
@@ -65,13 +46,18 @@ public class emotions_activity extends Activity {
 
 		create_new_text = (ImageView) findViewById(R.id.create_new_text);
 		stat = (ImageView) findViewById(R.id.stat);
-	
-		
-		//custom code goes here
-	
+
+
+		CalendarView calendarView = findViewById(R.id.calendarView);
+		calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+			@Override
+			public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+				String date = dayOfMonth + "/" + (month + 1) + "/" + year;
+				Toast.makeText(emotions_activity.this, date, Toast.LENGTH_SHORT).show();
+			}
+		});
+
 	}
-
-
 
 
 	public void onClickNotes(View view){
