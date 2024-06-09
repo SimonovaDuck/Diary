@@ -297,7 +297,19 @@ public class note_ex_activity extends Activity {
                         // Успешное удаление записи
                         Toast.makeText(this, "Запись успешно удалена", Toast.LENGTH_SHORT).show();
 
-                        // После успешного удаления, переходим на другую активность
+                        // После успешного удаления записи из коллекции "notes" можно удалить соответствующие записи из других коллекций
+                        // Удаляем запись из коллекции "moods"
+                        DocumentReference moodsRef = db.collection("moods").document(moods_Id);
+                        moodsRef.delete()
+                                .addOnSuccessListener(aVoid1 -> {
+                                    // Успешное удаление записи из коллекции "moods"
+                                    Log.d("Firestore", "Запись успешно удалена из коллекции 'moods'");
+                                })
+                                .addOnFailureListener(e -> {
+                                    // Обработка ошибок при удалении записи из коллекции "moods"
+                                    Log.e("Firestore", "Ошибка при удалении записи из коллекции 'moods': ", e);
+                                });
+                        // После удаления всех связанных записей можно перейти на другую активность
                         Intent intent = new Intent(this, menu_activity.class);
                         startActivity(intent);
                     })
@@ -305,6 +317,7 @@ public class note_ex_activity extends Activity {
                         // Обработка ошибок при удалении
                         Toast.makeText(this, "Ошибка при удалении записи", Toast.LENGTH_SHORT).show();
                     });
+
         } else {
             // Если идентификатор записи не определен, выведите сообщение об ошибке
             Toast.makeText(this, "Идентификатор записи не найден", Toast.LENGTH_SHORT).show();

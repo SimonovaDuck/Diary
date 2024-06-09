@@ -6,33 +6,36 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:background="@color/mind">
 
-<ScrollView android:id="@+id/note"
-	android:layout_width="match_parent"
-	android:layout_height="0dp"
-	android:background="@color/mind"
-	android:layout_below="@id/name_of_note"
-	android:layout_above="@id/underfoot"
-	app:layout_constraintTop_toBottomOf="@id/name_of_note"
-	app:layout_constraintBottom_toTopOf="@id/underfoot">
-
-	<EditText
-		android:id="@+id/user_input_text"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginStart="16dp"
-		android:layout_marginTop="16dp"
-		android:layout_marginEnd="16dp"
-		android:fontFamily="@font/kav"
-		android:gravity="top|start"
-		android:hint="Введите свои мысли"
-		android:inputType="textMultiLine" />
-
-</ScrollView>
-
-
-
 
 	<!-- header-->
+	<ScrollView
+		android:id="@+id/note"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_above="@id/underfoot"
+		android:layout_below="@id/name_of_note"
+		android:background="@color/mind"
+		app:layout_constraintBottom_toTopOf="@id/underfoot"
+		android:layout_marginBottom="16dp"
+		app:layout_constraintTop_toBottomOf="@id/name_of_note"
+		app:layout_constraintVertical_bias="0.0"
+		tools:layout_editor_absoluteX="0dp">
+
+		<EditText
+			android:id="@+id/user_input_text"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:layout_marginTop="16dp"
+			android:layout_marginEnd="16dp"
+			android:layout_marginBottom="4dp"
+			android:fontFamily="@font/kav"
+			android:gravity="top|start"
+			android:hint="Введите свои мысли"
+			android:inputType="textMultiLine" />
+
+	</ScrollView>
+
 	<RelativeLayout
 		android:id="@+id/head"
 		android:layout_width="match_parent"

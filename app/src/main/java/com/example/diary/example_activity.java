@@ -121,7 +121,7 @@ public void onClickNewNote(View view){
 			// Если идентификатор записи не определен, выведите сообщение об ошибке
 			Toast.makeText(this, "Идентификатор записи не найден", Toast.LENGTH_SHORT).show();
 		}
-		Intent intent = new Intent (this, zad_activity.class);
+		Intent intent = new Intent (this, wonts_activity.class);
 		startActivity(intent);
 	}
 // пролорпапро
@@ -130,23 +130,23 @@ public void onClickDelete(View view){
 	if (zadId != null) {
 		DocumentReference noteRef = db.collection("tasks").document(zadId);
 
-		// Обновляем содержимое поля "content" документа на пустую строку
-		noteRef.update("content", "")
+		// Удаляем документ из базы данных
+		noteRef.delete()
 				.addOnSuccessListener(aVoid -> {
-					// Успешное удаление контента записи
-					Toast.makeText(this, "Контент успешно удален", Toast.LENGTH_SHORT).show();
+					// Успешное удаление записи
+					Toast.makeText(this, "Задание успешно удалено", Toast.LENGTH_SHORT).show();
 
-					Intent intent = new Intent (this, zad_activity.class);
+					// После успешного удаления, переходим на другую активность
+					Intent intent = new Intent(this, wonts_activity.class);
 					startActivity(intent);
-
 				})
 				.addOnFailureListener(e -> {
-					// Обработка ошибок при удалении контента
-					Toast.makeText(this, "Ошибка при удалении контента", Toast.LENGTH_SHORT).show();
+					// Обработка ошибок при удалении
+					Toast.makeText(this, "Ошибка при удалении задания", Toast.LENGTH_SHORT).show();
 				});
 	} else {
 		// Если идентификатор записи не определен, выведите сообщение об ошибке
-		Toast.makeText(this, "Идентификатор записи не найден", Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "Идентификатор задания не найден", Toast.LENGTH_SHORT).show();
 	}
 }
 

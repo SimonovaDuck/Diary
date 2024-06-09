@@ -9,6 +9,9 @@ import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
@@ -116,7 +119,7 @@ public class emotions_activity extends Activity {
 		db.collection("moods")
 				.whereGreaterThanOrEqualTo("Date", startOfDay)
 				.whereLessThan("Date", endOfDay)
-				//.whereEqualTo("userId", currentUserId)
+				.whereEqualTo("userId", currentUserId)
 				.get()
 				.addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
 					@Override
@@ -138,6 +141,12 @@ public class emotions_activity extends Activity {
 							Log.d("EmotionsActivity", "На выбранную дату отсутствуют настроения.");
 							hideAllMoods();
 						}
+					}
+				})
+				.addOnFailureListener(new OnFailureListener() {
+					@Override
+					public void onFailure(@NonNull Exception e) {
+						Log.e("EmotionsActivity", "Ошибка при получении документов из Firestore: ", e);
 					}
 				});
 	}

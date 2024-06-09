@@ -9,11 +9,15 @@
     <ScrollView android:id="@+id/note_example"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/mind"
-        android:layout_below="@id/name_of_note"
         android:layout_above="@id/underfoot"
+        android:layout_below="@id/name_of_note"
+        android:background="@color/mind"
+        app:layout_constraintBottom_toTopOf="@id/underfoot"
         app:layout_constraintTop_toBottomOf="@id/name_of_note"
-        app:layout_constraintBottom_toTopOf="@id/underfoot">
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="70dp">
 
         <EditText
             android:id="@+id/text_from_author"
@@ -22,6 +26,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="4dp"
             android:fontFamily="@font/kav"
             android:gravity="top|start"
             android:text=""
@@ -226,7 +231,7 @@
             android:textStyle="italic"
             android:layout_gravity="center_horizontal|center"
             android:gravity="center"
-            android:textSize="17sp"
+            android:textSize="20sp"
             android:textColor="@color/texts"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="15dp"

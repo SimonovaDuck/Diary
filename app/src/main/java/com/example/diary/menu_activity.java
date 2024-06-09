@@ -4,6 +4,7 @@ package com.example.diary;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,6 +17,7 @@ import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -38,7 +40,7 @@ public class menu_activity extends Activity {
 
 	private FirebaseFirestore db; // Объект для работы с базой данных Cloud Firestore
 
-
+	private FirebaseAuth auth;
 
 
 
@@ -52,6 +54,7 @@ public class menu_activity extends Activity {
 
 		create_new_text = findViewById(R.id.create_new_text);
 		stat = findViewById(R.id.stat);
+		ImageView exit = findViewById(R.id.exit);
 
 		db = FirebaseFirestore.getInstance(); // Получение экземпляра Cloud Firestore
 		// Получение текущего пользователя и загрузка его заметок
@@ -61,11 +64,21 @@ public class menu_activity extends Activity {
 			String currentUserId = currentUser.getUid();
 			loadUserNotes(currentUserId); // Загрузка заметок текущего пользователя
 		}
+		exit.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				auth = FirebaseAuth.getInstance();
+				auth.signOut();
+				Intent intent = new Intent(menu_activity.this, enteryes_activity.class);
+				startActivity(intent);
+				finish();
+			}
+		});
 	}
 	private void loadUserNotes(String userId) {
-		// Получение записей определенного пользователя из базы данных Cloud Firestore
 		db.collection("notes")
 				.whereEqualTo("userId", userId) // Фильтр по полю "userId"
+				.orderBy("Date", Query.Direction.DESCENDING) // Сортировка по полю "Date"
 				.get()
 				.addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
 					@Override
@@ -80,10 +93,13 @@ public class menu_activity extends Activity {
 								// Добавление каждой записи на экран с указанием идентификатора и даты создания
 								addNewNoteBlock(noteTitle, noteId, date);
 							}
+						} else {
+							Log.e("Firestore", "Error getting documents: ", task.getException());
 						}
 					}
 				});
 	}
+
 
 
 
@@ -172,8 +188,6 @@ public class menu_activity extends Activity {
 		// Сохраняем созданную карточку для возможности последующего обращения к ней
 		noteBlocks.add(noteCard);
 	}
-
-
 
 }
 	

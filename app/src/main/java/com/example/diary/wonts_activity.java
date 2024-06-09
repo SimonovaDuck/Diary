@@ -33,6 +33,7 @@ package com.example.diary;
 	import com.google.firebase.auth.FirebaseAuth;
 	import com.google.firebase.auth.FirebaseUser;
 	import com.google.firebase.firestore.FirebaseFirestore;
+	import com.google.firebase.firestore.Query;
 	import com.google.firebase.firestore.QueryDocumentSnapshot;
 	import com.google.firebase.firestore.QuerySnapshot;
 
@@ -80,6 +81,7 @@ package com.example.diary;
 			// Получение записей определенного пользователя из базы данных Cloud Firestore
 			db.collection("wonts")
 					.whereEqualTo("userId", userId) // Фильтр по полю "userId"
+					.orderBy("Date", Query.Direction.DESCENDING) // Сортировка по полю "Date" в порядке убывания
 					.get()
 					.addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
 						@Override

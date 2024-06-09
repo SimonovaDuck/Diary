@@ -235,7 +235,7 @@ public void onClickDelete(View view){
 		noteRef.delete()
 				.addOnSuccessListener(aVoid -> {
 					// Успешное удаление записи
-					Toast.makeText(this, "Запись успешно удалена", Toast.LENGTH_SHORT).show();
+					Toast.makeText(this, "Привычка успешно удалена", Toast.LENGTH_SHORT).show();
 
 					// После успешного удаления, переходим на другую активность
 					Intent intent = new Intent(this, wonts_activity.class);
@@ -243,11 +243,11 @@ public void onClickDelete(View view){
 				})
 				.addOnFailureListener(e -> {
 					// Обработка ошибок при удалении
-					Toast.makeText(this, "Ошибка при удалении записи", Toast.LENGTH_SHORT).show();
+					Toast.makeText(this, "Ошибка при удалении привычки", Toast.LENGTH_SHORT).show();
 				});
 	} else {
 		// Если идентификатор записи не определен, выведите сообщение об ошибке
-		Toast.makeText(this, "Идентификатор записи не найден", Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "Идентификатор привычки не найден", Toast.LENGTH_SHORT).show();
 	}
 
 }
